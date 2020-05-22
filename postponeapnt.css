@@ -1,0 +1,71 @@
+body {
+	margin: 0;
+}
+* {
+	font-family: hind siliguri;
+}
+.container {
+    width: 100%;
+}
+section.postpone_sec {
+    width: 90%;
+    margin: 5% auto;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+p.post_head {
+    text-align: center;
+    font-size: 50px;
+    margin: 5px 0;
+    font-weight: bold;
+    color: red;
+}
+.check_sec {
+    width: 80%;
+    margin: 2% auto;
+    border: 1px solid lightgray;
+    padding: 3% 1%;
+}
+label.lab_date {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 10%;
+    margin-right: 2%;
+}
+input.inp_date {
+    font-size: 18px;
+    width: 15%;
+}
+label.lab_ft {
+	font-size: 18px;
+    font-weight: bold;
+    margin-left: 5%;
+    margin-right: 2%;
+}
+input.inp_time {
+	font-size: 18px;
+    width: 12%;
+}
+label.lab_tt {
+	font-size: 18px;
+    font-weight: bold;
+    margin-left: 5%;
+    margin-right: 2%;
+}
+label.lab_ndate {
+    font-size: 18px;
+    font-weight: bold;
+}
+input.new_date {
+    font-size: 18px;
+    width: 15%;
+    margin: 1%;
+}
+input.btn_post {
+    font-size: 18px;
+    margin: 1%;
+    padding: 5px 10px;
+    color: white;
+    border: none;
+    background: red;
+}

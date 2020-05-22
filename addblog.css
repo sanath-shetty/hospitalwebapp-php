@@ -1,0 +1,70 @@
+body {
+	margin: 0;
+}
+* {
+	font-family: hind siliguri;
+}
+.container {
+    width: 100%;
+}
+p.back_btn {
+    float: right;
+    margin-right: 5%;
+    padding: 1%;
+    background: red;
+    color: white;
+    font-size: 18px;
+}
+section.add_blog_sec {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 7%;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+p.blog_head {
+    text-align: center;
+    margin: 0;
+    font-size: 50px;
+    font-weight: bold;
+    color: red;
+}
+input.inp_name {
+    width: 35%;
+    font-size: 20px;
+    padding: 5px;
+    text-align: center;
+    border: none;
+}
+input.inp_date {
+    width: 35%;
+    font-size: 20px;
+    border: none;
+    text-align: center;
+    padding: 5px;
+}
+textarea.txta_para {
+    width: 70%;
+    height: 200px;
+    font-size: 18px;
+    margin-top: 1%;
+    padding: 1%;
+}
+p.add_para {
+    padding: 5px;
+    background: red;
+    width: 10%;
+    color: white;
+    font-weight: bold;
+    margin: 12px auto;
+}
+input.btn_submit {
+    padding: 1%;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    background: red;
+    margin-bottom: 2%;
+    margin-top: 1%;
+}

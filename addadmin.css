@@ -1,0 +1,95 @@
+body {
+	margin: 0;
+}
+* {
+	font-family: hind siliguri;
+}
+.container {
+    width: 100%;
+}
+.navbar {
+    width: 100%;
+    display: flex;
+    background: #31D2DE;
+}
+.logo_sec {
+    width: 10%;
+}
+.nav_sec {
+    width: 90%;
+    margin: auto 0;
+    margin-right: 2%;
+}
+.ul_nav_sec {
+    width: 15%;
+    display: flex;
+    padding: 0;
+    list-style: none;
+}
+.ul_nav_sec li a {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+.ul_nav_sec li {
+    margin-right: 15%;
+}
+section.addadmin_sec {
+    width: 90%;
+    margin: 142px auto;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+p.addadmin_head {
+    text-align: center;
+    margin: 0;
+    font-size: 50px;
+    font-weight: bold;
+    color: red;
+}
+label.utype_head {
+    font-size: 18px;
+    font-weight: bold;
+}
+select.sel_utype {
+    margin-left: 1%;
+    width: 31%;
+    font-size: 18px;
+    padding: 5px;
+    color: gray;
+}
+label.lab_username {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 1%;}
+label.lab_pswd {
+	font-size: 18px;
+    font-weight: bold;
+    margin-right: 1%;
+}
+input.inp_uname {
+    width: 30%;
+    font-size: 18px;
+    padding: 5px;
+}
+input.inp_uemail {
+    width: 30%;
+    font-size: 18px;
+    padding: 5px;
+    margin-left: 37px;
+}
+input.inp_pswd {
+	width: 30%;
+    font-size: 18px;
+    padding: 5px;
+}
+input.btn_cu {
+    font-size: 18px;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    background: red;
+    margin: 2%;
+}

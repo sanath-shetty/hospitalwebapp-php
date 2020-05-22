@@ -1,0 +1,70 @@
+
+<input type="text" name="p_id" placeholder="Patient Id" class="inp_pid">
+
+<input type="submit" name="btn_get" class="btn_get" value="Get Detail"><br>
+
+<?php
+    include 'connect.php';
+    ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
+    $pg_id = "";
+    $ps_id = "";
+    $pg_doc = "";
+    $pg_fname = "";
+    $pg_lname = "";
+    $tod_date = "";
+    $pg_bid = "";
+    $pg_build = "";
+    $pg_wid = "";
+    $pg_ward = "";
+    $msg = "";
+    $pg_ward = "";
+    $pgid = "";
+
+    if (isset($_POST['p_id'])) {
+	    $p_id = $_POST['p_id'];
+
+	    $sql = "SELECT * FROM ward_asgn a, patient_data b, building c, ward d WHERE a.p_id = b.p_id && a.bld_id = c.bld_id && a.w_id = d.w_id && a.p_id = '$p_id'";
+	    $result = mysqli_query($con,$sql);
+
+	    if (mysqli_num_rows($result) > 0) {
+
+		    $rows = mysqli_fetch_assoc($result);
+
+			$pg_id = $rows['p_id'];
+			$pg_fname = $rows['f_name'];
+			$pg_lname = $rows['l_name'];
+			$tod_date = date('Y-m-d');
+			$pg_build = $rows['bld_name'];
+			$pg_ward = $rows['w_num'];
+			$pg_bid = $rows['bld_id'];
+            $pg_wid = $rows['w_id'];
+
+	    }else{
+		    $msg = "<p class='error_msg'>No such data available.</p>";
+	    }
+    }
+
+    if (isset($_POST['pg_id'])) {
+    	$ps_id = $_POST['pg_id'];
+    }
+
+    if (isset($_POST['docName'])) {
+    	$pg_doc = $_POST['docName'];
+    }
+
+    if (isset($_POST['btn_save'])) {
+	    $tod_date = date('Y-m-d');
+	    $pg_bldid = $_POST['pg_bldid'];
+	    $pg_wid = $_POST['pg_wid'];
+
+	    $sq = "INSERT INTO `visited`(`p_id`, `doc_id`, `bld_id`, `w_id`, `vis_date`) VALUES ('$ps_id','$pg_doc','$pg_bldid','$pg_wid','$tod_date')";
+		$result = mysqli_query($con,$sq);
+
+		if ($result) {
+			header('Location:doc_visited.php?success');
+		}else{
+		   $msg = "<p class='error_msg'>Error saving data. Please insert all fields.</p>";
+		}
+	}
+
+?>

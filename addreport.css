@@ -1,0 +1,46 @@
+body {
+	margin: 0;
+}
+* {
+	font-family: hind siliguri;
+}
+.container {
+    width: 100%;
+}
+section.report_sec {
+    width: 90%;
+    margin: 134px auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+p.report_head {
+    text-align: center;
+    margin: 0;
+    font-size: 50px;
+    font-weight: bold;
+    color: red;
+}
+input.inp_pid {
+    width: 30%;
+    font-size: 18px;
+    padding: 5px;
+}
+input.inp_date {
+    width: 30%;
+    margin-left: 2%;
+    font-size: 18px;
+    padding: 5px;
+    color: gray;
+}
+input.inp_cfile {
+    font-size: 18px;
+    margin: 3% 0;
+}
+input.btn_submit {
+    font-size: 18px;
+    color: white;
+    border: none;
+    background: red;
+    padding: 1%;
+    margin-bottom: 2%;
+}

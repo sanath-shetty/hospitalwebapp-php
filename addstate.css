@@ -1,0 +1,35 @@
+body {
+	margin: 0;
+}
+* {
+	font-family: hind siliguri;
+}
+.container {
+    width: 100%;
+}
+.state_sec {
+    width: 90%;
+    margin: 50px auto;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+p.state_head {
+    text-align: center;
+    margin: 0;
+    font-size: 50px;
+    font-weight: bold;
+    color: red;
+}
+input.inp_state {
+    font-size: 18px;
+    width: 35%;
+    padding: 5px;
+    margin: 2%;
+}
+input.btn_state {
+    font-size: 18px;
+    padding: 5px 10px;
+    color: white;
+    border: none;
+    background: red;
+}

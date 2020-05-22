@@ -1,0 +1,37 @@
+body {
+	margin: 0;
+}
+* {
+	font-family: hind siliguri;
+}
+.container {
+    width: 100%;
+}
+.navbar {
+    width: 100%;
+    display: flex;
+    background: #31D2DE;
+}
+.logo_sec {
+    width: 10%;
+}
+.nav_sec {
+    width: 90%;
+    margin: auto 0;
+    margin-right: 2%;
+}
+.ul_nav_sec {
+    width: 10%;
+    display: flex;
+    padding: 0;
+    list-style: none;
+}
+.ul_nav_sec li a {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+.ul_nav_sec li {
+    margin-right: 2%;
+}

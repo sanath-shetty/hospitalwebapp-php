@@ -1,0 +1,70 @@
+body {
+	margin: 0;
+}
+* {
+	font-family: hind siliguri;
+}
+.container {
+    width: 100%;
+}
+section.report_sec {
+    width: 90%;
+    margin: 5% auto;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+p.report_head {
+    text-align: center;
+    font-size: 50px;
+    margin: 0;
+    font-weight: bold;
+    color: red;
+}
+input.inp_id {
+    width: 10%;
+    font-size: 18px;
+    padding: 5px;
+    text-indent: 10px;
+    margin-left: 18%;
+}
+input.inp_fname {
+    width: 25%;
+    font-size: 18px;
+    padding: 5px;
+    text-indent: 10px;
+    margin-left: 1%;
+}
+input.inp_lname {
+	width: 25%;
+    font-size: 18px;
+    padding: 5px;
+    text-indent: 10px;
+    margin-left: 1%;
+}
+input.inp_age {
+	width: 10%;
+    font-size: 18px;
+    padding: 5px;
+    text-indent: 10px;
+    margin-left: 18%;
+}
+input.inp_bg {
+	width: 10%;
+    font-size: 18px;
+    padding: 5px;
+    text-indent: 10px;
+    margin-left: 1%;
+}
+input.inp_file {
+    margin-left: 18%;
+    font-size: 18px;
+}
+input.btn_sub {
+    font-size: 18px;
+    padding: 5px 10px;
+    margin: 2% auto;
+    background: red;
+    border: none;
+    color: white;
+    font-weight: bold;
+}

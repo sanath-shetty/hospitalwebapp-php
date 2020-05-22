@@ -1,0 +1,76 @@
+body {
+	margin: 0;
+}
+* {
+	font-family: hind siliguri;
+}
+.container {
+    width: 100%;
+}
+.ward_sec {
+    width: 90%;
+    margin: 35px auto;
+}
+p.ward_head {
+    text-align: center;
+    font-size: 50px;
+    margin: auto;
+    font-weight: bold;
+    color: red;
+}
+table.tb_ward1 {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    margin-top: 2%;
+}
+.tb_ward1 tr th {
+    border: 1px solid gray;
+}
+.tb_ward1 tr td {
+    border: 1px solid gray;
+    width: 10%;
+    text-align: center;
+}
+.tb_ward1 tr th {
+    border: 1px solid gray;
+    font-size: 25px;
+    color: #5f3ce3;
+}
+table.tb_ward2 {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    margin-top: 5%;
+}
+.tb_ward2 tr th {
+    border: 1px solid gray;
+}
+.tb_ward2 tr td {
+    border: 1px solid gray;
+    width: 10%;
+    text-align: center;
+}
+.tb_ward2 tr th {
+    border: 1px solid gray;
+    font-size: 25px;
+    color: #5f3ce3;
+}
+tr.tr_room td {
+    padding: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #5f3ce3;
+}
+tr.tr_room td {
+    padding: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #5f3ce3;
+}
+tr.tr_avail td {
+    padding: 5px;
+    color: gray;
+    font-size: 20px;
+    font-weight: bold;
+}

@@ -1,0 +1,120 @@
+body {
+	margin: 0;
+}
+* {
+	font-family: hind siliguri;
+}
+.container {
+    width: 100%;
+}
+section.viewapnt_serach {
+    float: right;
+    margin-right: 5%;
+    margin-top: 4%;
+}
+input.inp_date {
+    font-size: 18px;
+    padding: 5px;
+}
+label.lab_sty {
+    font-size: 15px;
+    margin: 0 5px;
+}
+input.inp_time {
+    font-size: 18px;
+    padding: 5px;
+}
+input.btn_time {
+    font-size: 18px;
+    padding: 8px;
+    background: red;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+section.apnt_sec {
+    width: 90%;
+    margin: 10% auto 2%;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+p.apnt_head {
+    margin: 0;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: red;
+}
+table.tb_vapnt {
+    width: 90%;
+    margin: 1% auto;
+    border-collapse: collapse;
+}
+.tb_vapnt tr th {
+    border: 1px solid lightgray;
+    font-size: 18px;
+    padding: 5px;
+    text-align: center;
+}
+.tb_vapnt tr td {
+    border: 1px solid lightgray;
+    font-size: 18px;
+    padding: 5px;
+    text-align: center;
+}
+.btn_view_edit {
+    padding: 5px;
+    background: #31d2de;
+    width: min-content;
+    margin: 5px auto;
+}
+.btn_delete {
+    padding: 5px;
+    background: #fe0000;
+    width: min-content;
+    margin: 5px auto;
+}
+a.a_style {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+p.conf_del {
+    margin-left: 10%;
+    font-size: 18px;
+    font-weight: bold;
+}
+input.inp_id {
+    width: 52px;
+    text-align: center;
+    margin-left: 10%;
+    border: none;
+    font-size: 18px;
+}
+input.inp_name {
+    width: 160px;
+    text-align: center;
+    margin-left: 1%;
+    border: none;
+    font-size: 18px;
+}
+input.btn_yes {
+    margin-left: 10%;
+    margin-top: 1%;
+    font-size: 18px;
+    padding: 5px 10px;
+    background: red;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+input.btn_no {
+    margin-left: 1%;
+    margin-top: 1%;
+    font-size: 18px;
+    padding: 5px 10px;
+    background: #31d2de;
+    border: none;
+    color: white;
+    font-weight: bold;
+}

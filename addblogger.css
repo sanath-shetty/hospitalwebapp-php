@@ -1,0 +1,57 @@
+body {
+	margin: 0;
+}
+* {
+	font-family: hind siliguri;
+}
+.container {
+    width: 100%;
+}
+.addblogger {
+    width: 90%;
+    margin: 126px auto;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+p.blogger_head {
+    font-size: 50px;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}
+input.inp_fname {
+    width: 25%;
+    font-size: 18px;
+    padding: 5px;
+}
+input.inp_lname {
+    width: 25%;
+    font-size: 18px;
+    padding: 5px;
+    margin-left: 30px;
+}
+input.inp_cont {
+    width: 25%;
+    font-size: 18px;
+    padding: 5px;
+}
+input.inp_email {
+    width: 25%;
+    font-size: 18px;
+    padding: 5px;
+    margin-left: 30px;
+}
+input.inp_pswd {
+    width: 54%;
+    font-size: 18px;
+    padding: 5px;
+}
+input.btn_submit {
+    padding: 5px;
+    color: white;
+    background: red;
+    border: none;
+    font-size: 18px;
+    margin: 1% 0;
+}
