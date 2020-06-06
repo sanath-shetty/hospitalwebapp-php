@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 27, 2020 at 06:36 AM
+-- Generation Time: May 31, 2020 at 02:21 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `a_patient` (
 --
 
 INSERT INTO `a_patient` (`padmin_id`, `pa_name`, `pa_email`, `pa_pswd`, `pa_status`) VALUES
-(1, 'mastru', 'mastru@davinci.com', 'newpswd', '1');
+(1, 'mastru', 'mastru@davinci.com', '8344', '1');
 
 -- --------------------------------------------------------
 
@@ -173,22 +173,24 @@ CREATE TABLE IF NOT EXISTS `doctor_data` (
   `q_id` int(11) NOT NULL,
   `s_id` int(11) NOT NULL,
   `status` enum('0','1') NOT NULL DEFAULT '0',
+  `vis_chrg` int(11) NOT NULL,
   PRIMARY KEY (`doc_id`),
   KEY `st_id` (`st_id`),
   KEY `q_id` (`q_id`),
   KEY `s_id` (`s_id`),
   KEY `dadmin_id` (`dadmin_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `doctor_data`
 --
 
-INSERT INTO `doctor_data` (`doc_id`, `dadmin_id`, `f_name`, `doc_img`, `l_name`, `dob_date`, `age`, `blood`, `t_add`, `p_add`, `st_id`, `city`, `pin`, `contact`, `q_id`, `s_id`, `status`) VALUES
-(1, 1, 'Sanath', '1.jpg', 'Shetty', '1998-04-09', 29, 'O+ve', 'Managlore', 'Bedra', 1, 'Mangalore', 575002, 1234567890, 7, 5, '1'),
-(3, 1, 'Markus', 'c2.jpg', 'Lance', '2012-02-08', 35, 'B+ve', 'Bikarnakatte, Mangalore', 'Bikarnakatte, Mangalore', 1, 'Udupi', 575002, 1234567890, 3, 6, '1'),
-(4, 1, 'Dinesh', 't7.jpg', 'Shetty', '1960-08-09', 60, 'O+ve', 'Bejai, Mangalore', 'Gorigudda, Mangalore', 1, 'Mangalore', 575002, 1234567890, 3, 2, '1'),
-(13, 1, 'Mastru', '2.jpg', 'Bikarnakatte', '1990-10-31', 30, 'B+ve', 'DaVinci, Mangalore', 'Bikarnakatte, Mangalore', 13, 'Mangalore', 575005, 1234567890, 4, 8, '1');
+INSERT INTO `doctor_data` (`doc_id`, `dadmin_id`, `f_name`, `doc_img`, `l_name`, `dob_date`, `age`, `blood`, `t_add`, `p_add`, `st_id`, `city`, `pin`, `contact`, `q_id`, `s_id`, `status`, `vis_chrg`) VALUES
+(1, 1, 'Sanath', '1.jpg', 'Shetty', '1998-04-09', 29, 'O+ve', 'Managlore', 'Bedra', 1, 'Mangalore', 575002, 1234567890, 7, 5, '1', 400),
+(3, 1, 'Markus', 'c2.jpg', 'Lance', '2012-02-08', 35, 'B+ve', 'Bikarnakatte, Mangalore', 'Bikarnakatte, Mangalore', 1, 'Udupi', 575002, 1234567890, 3, 6, '1', 400),
+(4, 1, 'Dinesh', 't7.jpg', 'Shetty', '1960-08-09', 60, 'O+ve', 'Bejai, Mangalore', 'Gorigudda, Mangalore', 1, 'Mangalore', 575002, 1234567890, 3, 2, '1', 500),
+(13, 1, 'Mastru', '2.jpg', 'Bikarnakatte', '1990-10-31', 30, 'B+ve', 'DaVinci, Mangalore', 'Bikarnakatte, Mangalore', 13, 'Mangalore', 575005, 1234567890, 4, 8, '1', 900),
+(14, 1, 'Harish Madiwal', 'c3.jpg', 'Pandeshwar', '1790-09-05', 200, 'B-ve', 'fdg', 'fdgfd', 4, 'safdgfh', 65475, 1234567890, 2, 6, '1', 500);
 
 -- --------------------------------------------------------
 
@@ -247,6 +249,26 @@ INSERT INTO `d_specl` (`s_id`, `s_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `floor_mgnt`
+--
+
+DROP TABLE IF EXISTS `floor_mgnt`;
+CREATE TABLE IF NOT EXISTS `floor_mgnt` (
+  `fm_id` int(11) NOT NULL AUTO_INCREMENT,
+  `fm_charge` int(11) NOT NULL,
+  PRIMARY KEY (`fm_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `floor_mgnt`
+--
+
+INSERT INTO `floor_mgnt` (`fm_id`, `fm_charge`) VALUES
+(1, 100);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `patient_data`
 --
 
@@ -278,7 +300,43 @@ CREATE TABLE IF NOT EXISTS `patient_data` (
 --
 
 INSERT INTO `patient_data` (`p_id`, `f_name`, `l_name`, `date`, `age`, `blood_group`, `contact`, `address`, `st_id`, `city`, `pin`, `job`, `email`, `height`, `weight`, `health_issue`, `others_issue`) VALUES
-('P01', 'Samarth', 'Roy', '2000-01-01', 20, 'O+ve', 1234567890, 'PVS, Mangalore', 1, 'Mangalore', 575002, 'Student', 'abc@gmail.com', 6, 70, '', '');
+('P01', 'Samarth', 'Roy', '2000-01-01', 20, 'O+ve', 1234567890, 'PVS, Mangalore', 1, 'Mangalore', 575002, 'Student', 'abc@gmail.com', 6, 70, '', ''),
+('P02', 'Sanath', 'Shetty', '1998-04-09', 30, 'O+ve', 1234567890, 'Gorigudda, Mangalore', 1, 'Mangalore', 575002, 'Student', 'sanath@gmail.com', 5, 71, '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reports`
+--
+
+DROP TABLE IF EXISTS `reports`;
+CREATE TABLE IF NOT EXISTS `reports` (
+  `report_id` int(11) NOT NULL AUTO_INCREMENT,
+  `p_id` varchar(30) NOT NULL,
+  `rFile` varchar(30) NOT NULL,
+  PRIMARY KEY (`report_id`),
+  KEY `p_id` (`p_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reports`
+--
+
+INSERT INTO `reports` (`report_id`, `p_id`, `rFile`) VALUES
+(1, 'P01', ''),
+(2, 'P01', ''),
+(3, 'P01', ''),
+(4, 'P01', ''),
+(5, 'P01', ''),
+(6, 'P01', ''),
+(7, 'P01', ''),
+(8, 'P01', ''),
+(9, 'P01', ''),
+(10, 'P01', ''),
+(11, 'P01', ''),
+(12, 'P01', ''),
+(13, 'P01', 'election.pdf'),
+(14, 'P01', 'dotnet mod5.pdf');
 
 -- --------------------------------------------------------
 
@@ -322,24 +380,24 @@ INSERT INTO `state` (`st_id`, `st_name`) VALUES
 DROP TABLE IF EXISTS `visited`;
 CREATE TABLE IF NOT EXISTS `visited` (
   `visit_id` int(11) NOT NULL AUTO_INCREMENT,
-  `p_id` varchar(30) NOT NULL,
+  `wasgn_id` int(11) NOT NULL,
   `doc_id` int(11) NOT NULL,
-  `bld_id` int(11) NOT NULL,
-  `w_id` int(11) NOT NULL,
-  `vis_date` date NOT NULL,
+  `vis_count` int(11) NOT NULL,
   PRIMARY KEY (`visit_id`),
-  KEY `p_id` (`p_id`),
   KEY `doc_id` (`doc_id`),
-  KEY `bld_id` (`bld_id`),
-  KEY `w_id` (`w_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
+  KEY `wasgn_id` (`wasgn_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `visited`
 --
 
-INSERT INTO `visited` (`visit_id`, `p_id`, `doc_id`, `bld_id`, `w_id`, `vis_date`) VALUES
-(63, 'P01', 13, 3, 13, '2020-02-27');
+INSERT INTO `visited` (`visit_id`, `wasgn_id`, `doc_id`, `vis_count`) VALUES
+(66, 20, 3, 4),
+(67, 20, 1, 3),
+(68, 20, 13, 2),
+(69, 20, 4, 1),
+(70, 18, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -353,6 +411,7 @@ CREATE TABLE IF NOT EXISTS `ward` (
   `bld_id` int(11) NOT NULL,
   `w_num` int(10) NOT NULL,
   `status` enum('0','1') NOT NULL DEFAULT '0',
+  `w_chrg` int(11) NOT NULL,
   PRIMARY KEY (`w_id`),
   KEY `bld_name` (`bld_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
@@ -361,39 +420,39 @@ CREATE TABLE IF NOT EXISTS `ward` (
 -- Dumping data for table `ward`
 --
 
-INSERT INTO `ward` (`w_id`, `bld_id`, `w_num`, `status`) VALUES
-(1, 3, 101, '1'),
-(2, 3, 102, '0'),
-(3, 3, 103, '0'),
-(4, 3, 104, '0'),
-(5, 3, 105, '1'),
-(6, 3, 106, '1'),
-(7, 3, 107, '0'),
-(8, 3, 108, '0'),
-(9, 3, 201, '1'),
-(10, 3, 202, '0'),
-(11, 3, 203, '0'),
-(12, 3, 204, '0'),
-(13, 3, 205, '0'),
-(14, 3, 206, '1'),
-(15, 3, 207, '0'),
-(16, 3, 208, '0'),
-(17, 2, 111, '1'),
-(18, 2, 112, '1'),
-(19, 2, 113, '1'),
-(20, 2, 114, '0'),
-(21, 2, 115, '0'),
-(22, 2, 116, '0'),
-(23, 2, 117, '0'),
-(24, 2, 118, '1'),
-(25, 2, 121, '0'),
-(26, 2, 122, '0'),
-(27, 2, 123, '0'),
-(28, 2, 124, '1'),
-(29, 2, 125, '0'),
-(30, 2, 126, '0'),
-(31, 2, 127, '0'),
-(32, 2, 128, '0');
+INSERT INTO `ward` (`w_id`, `bld_id`, `w_num`, `status`, `w_chrg`) VALUES
+(1, 3, 101, '0', 1200),
+(2, 3, 102, '0', 1200),
+(3, 3, 103, '0', 1200),
+(4, 3, 104, '0', 1200),
+(5, 3, 105, '0', 1200),
+(6, 3, 106, '0', 1500),
+(7, 3, 107, '0', 1500),
+(8, 3, 108, '0', 1500),
+(9, 3, 201, '0', 1200),
+(10, 3, 202, '0', 1200),
+(11, 3, 203, '0', 1200),
+(12, 3, 204, '0', 1200),
+(13, 3, 205, '0', 1200),
+(14, 3, 206, '0', 1500),
+(15, 3, 207, '0', 1500),
+(16, 3, 208, '0', 1500),
+(17, 2, 111, '0', 1200),
+(18, 2, 112, '0', 1200),
+(19, 2, 113, '0', 1200),
+(20, 2, 114, '1', 1200),
+(21, 2, 115, '1', 1200),
+(22, 2, 116, '0', 1500),
+(23, 2, 117, '0', 1500),
+(24, 2, 118, '0', 1500),
+(25, 2, 121, '1', 1200),
+(26, 2, 122, '0', 1200),
+(27, 2, 123, '0', 1200),
+(28, 2, 124, '1', 1200),
+(29, 2, 125, '0', 1200),
+(30, 2, 126, '0', 1500),
+(31, 2, 127, '0', 1500),
+(32, 2, 128, '0', 1500);
 
 -- --------------------------------------------------------
 
@@ -411,14 +470,16 @@ CREATE TABLE IF NOT EXISTS `ward_asgn` (
   KEY `ptnt_id` (`p_id`),
   KEY `building_id` (`bld_id`),
   KEY `ward_id` (`w_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ward_asgn`
 --
 
 INSERT INTO `ward_asgn` (`wasgn_id`, `p_id`, `bld_id`, `w_id`) VALUES
-(17, 'P01', 3, 13);
+(18, 'P02', 2, 20),
+(20, 'P01', 2, 21),
+(21, 'P01', 2, 25);
 
 --
 -- Constraints for dumped tables
@@ -448,13 +509,17 @@ ALTER TABLE `patient_data`
   ADD CONSTRAINT `state_key` FOREIGN KEY (`st_id`) REFERENCES `state` (`st_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Constraints for table `reports`
+--
+ALTER TABLE `reports`
+  ADD CONSTRAINT `pReports` FOREIGN KEY (`p_id`) REFERENCES `patient_data` (`p_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `visited`
 --
 ALTER TABLE `visited`
-  ADD CONSTRAINT `buildId` FOREIGN KEY (`bld_id`) REFERENCES `building` (`bld_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `doctorData` FOREIGN KEY (`doc_id`) REFERENCES `doctor_data` (`doc_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `patientData` FOREIGN KEY (`p_id`) REFERENCES `patient_data` (`p_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `wardId` FOREIGN KEY (`w_id`) REFERENCES `ward` (`w_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `wardAsgn` FOREIGN KEY (`wasgn_id`) REFERENCES `ward_asgn` (`wasgn_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ward`
