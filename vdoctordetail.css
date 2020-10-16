@@ -1,118 +1,115 @@
 body {
-	margin: 0;
+  margin: 0;
 }
 * {
-	font-family: hind siliguri;
+  font-family: hind siliguri;
 }
 .container {
-    width: 100%;
+  width: 100%;
 }
 .search_sec {
-    margin-top: 3%;
-    display: flex;
-    float: right;
+  margin-top: 3%;
+  display: flex;
+  float: right;
 }
 input.inp_search {
-    height: min-content;
-    font-size: 18px;
-    padding: 5px;
-    width: 55%;
+  height: min-content;
+  font-size: 18px;
+  padding: 5px;
+  width: 55%;
 }
-p.btn_search {
-    margin: 0;
-    padding: 5px;
-    font-size: 18px;
-    background: red;
-    color: white;
+input.btn_search {
+  border: unset;
+  padding: 11px;
 }
 section.vpdata_sec {
-    width: 90%;
-    margin: 100px auto 50px;
-    border: 1px solid lightgray;
-    border-radius: 10px;
+  width: 90%;
+  margin: 100px auto 50px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
 }
 p.vpdate_head {
-    text-align: center;
-    font-size: 50px;
-    margin: 0;
-    font-weight: bold;
-    color: red;
+  text-align: center;
+  font-size: 50px;
+  margin: 0;
+  font-weight: bold;
+  color: red;
 }
 table.tb_vpdata {
-    width: 95%;
-    margin: 1% auto;
-    border-collapse: collapse;
+  width: 95%;
+  margin: 1% auto;
+  border-collapse: collapse;
 }
 .tb_vpdata tr th {
-    border: 1px solid lightgray;
-    padding: 5px;
-    font-size: 18px;
-    width: 9%;
+  border: 1px solid lightgray;
+  padding: 5px;
+  font-size: 18px;
+  width: 9%;
 }
 .tb_vpdata tr td {
-    border: 1px solid lightgray;
-    padding: 5px;
-    font-size: 15px;
-    width: 9%;
-    text-align: center;
+  border: 1px solid lightgray;
+  padding: 5px;
+  font-size: 15px;
+  width: 9%;
+  text-align: center;
 }
 a.a_style {
-    text-decoration: none;
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
 }
 p.btn_viewmore {
-    padding: 5px;
-    color: white;
-    background: red;
-    width: 6%;
-    margin: 0 auto;
-    text-align: center;
+  padding: 5px;
+  color: white;
+  background: red;
+  width: 6%;
+  margin: 0 auto;
+  text-align: center;
 }
 .form_search {
-    width: 60%;
-    margin: 5px auto;
+  width: 60%;
+  margin: 5px auto;
 }
 p.delete_msg {
-    margin-left: 5%;
-    font-size: 18px;
-    font-weight: bold;
-    color: #5f3ce2;
+  margin-left: 5%;
+  font-size: 18px;
+  font-weight: bold;
+  color: #5f3ce2;
 }
 input.btn_yes {
-    margin-left: 5%;
-    padding: 5px 10px;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    border: none;
-    background: #fe0000;
+  margin-left: 5%;
+  padding: 5px 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  background: #fe0000;
 }
 input.btn_no {
-    margin-left: 1%;
-    padding: 5px 10px;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    border: none;
-    background: #31d2de;
+  margin-left: 1%;
+  padding: 5px 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  background: #31d2de;
 }
 input.inp_id {
-    width: 35px;
-    text-align: center;
-    font-size: 18px;
-    border: 1px solid lightgray;
-    color: gray;
-    margin-left: 5%;
-    margin-bottom: 10px;
+  width: 35px;
+  text-align: center;
+  font-size: 18px;
+  border: 1px solid lightgray;
+  color: gray;
+  margin-left: 5%;
+  margin-bottom: 10px;
 }
 input.inp_name {
-    width: 100px;
-    text-align: center;
-    font-size: 18px;
-    border: 1px solid lightgray;
-    color: gray;
-    margin-left: 29px;
-    margin-bottom: 10px;
+  width: 100px;
+  text-align: center;
+  font-size: 18px;
+  border: 1px solid lightgray;
+  color: gray;
+  margin-left: 29px;
+  margin-bottom: 10px;
 }

@@ -1,76 +1,96 @@
 body {
-	margin: 0;
+  margin: 0;
 }
 * {
-	font-family: hind siliguri;
+  font-family: hind siliguri;
 }
 .container {
-    width: 100%;
+  width: 100%;
 }
 .navbar {
-    width: 100%;
-    display: flex;
-    background: #31D2DE;
+  width: 100%;
+  display: flex;
+  background: #31d2de;
 }
 .logo_sec {
-    width: 10%;
+  width: 10%;
 }
 .nav_sec {
-    width: 90%;
-    margin: auto 0;
-    margin-right: 2%;
+  width: 90%;
+  margin: auto 0;
+  margin-right: 2%;
 }
 .ul_nav_sec {
-    width: 32%;
-    display: flex;
-    padding: 0;
-    list-style: none;
+  width: 32%;
+  display: flex;
+  padding: 0;
+  list-style: none;
 }
 .ul_nav_sec li a {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
 }
 .ul_nav_sec li {
-    margin-right: 10%;
+  margin-right: 10%;
 }
 p.dashboard_head {
-    font-size: 50px;
-    margin: 0;
-    margin-left: 5%;
-    font-weight: bold;
-    color: red;
-    margin-top: 2%;
+  font-size: 50px;
+  margin: 0;
+  margin-left: 5%;
+  font-weight: bold;
+  color: red;
+  margin-top: 2%;
 }
 .row {
-    width: 100%;
-    display: flex;
-    margin-top: 2%;
+  width: 100%;
+  display: flex;
+  margin-top: 2%;
 }
 hr.list_hr {
-    margin: 10px;
-    border: 1px solid gray;
+  margin: 10px;
+  border: 1px solid gray;
 }
 .box {
-    width: 30%;
+  width: 30%;
 }
 p.list_head {
-    margin: 1% 15%;
-    font-size: 30px;
-    font-weight: bold;
-    color: #5f3ce3;
+  margin: 1% 15%;
+  font-size: 30px;
+  font-weight: bold;
+  color: #5f3ce3;
 }
 ul.list_ul {
-    list-style-type: none;
-    padding-left: 15%;
-    font-size: 18px;
+  list-style-type: none;
+  padding-left: 15%;
+  font-size: 18px;
 }
 ul.list_ul li {
-    margin-bottom: 8%;
+  margin-bottom: 8%;
 }
 ul.list_ul li a {
-    text-decoration: none;
-    font-weight: bold;
-    color: gray;
+  text-decoration: none;
+  font-weight: bold;
+  color: gray;
+}
+section.menu_sec {
+  background: url(image/dashboard_background.jpg);
+  background-repeat: unset;
+  background-size: cover;
+  height: 69vh;
+  padding-top: 9%;
+}
+.inner-div {
+  width: 60%;
+  background: white;
+  padding: 2% 0;
+  margin: 0 auto;
+  position: relative;
+}
+img.img-back {
+  position: absolute;
+  top: 228px;
+  width: 450px;
+  left: 50%;
 }
