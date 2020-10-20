@@ -18,13 +18,7 @@
         <div class="collapse navbar-collapse" id="navbarColor03">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a href="dashboard_patientadmin.php" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="change_pswd.php">Change Password</a>
-                </li>
-                <li class="nav-item">
-                    <a href="logout.php" class="nav-link"><?php echo $user; ?>-Logout</a>
+                    <a href="index.php" class="nav-link">Home</a>
                 </li>
             </ul>
         </div>

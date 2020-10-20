@@ -5,137 +5,149 @@
 	<title>Sanjivini Hospital-Index</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="css/fonts.css">
-	<link rel="stylesheet" href="font.css">
-	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="cmn_file/nav-style.css">
 </head>
 
 <body>
-	<div class="container">
-		<?php include("cmn_file/topnav_default.php"); ?>
-		<section class="slider_sec">
-			<div class="transp">
-				<div class="slide-one">
-					<p class="slider_head">Sanjivini Hospital</p>
-					<p class="slider_para">Your health is our wealth. <span class="span1">So stay sick fellas.</span></p>
-					<div class="slider_btn">
-						<a href="meetdoctor.php" class="btn_doc">Our Doctors</a>
-						<a href="" class="btn_cont">Contact us</a>
-					</div>
+	<?php include("cmn_file/topnav_default.php"); ?>
+	<section class="top-section">
+		<div class="index-background">
+			<h1 class="ml-5 pt-5">Welcome To Sanjivini</h1>
+			<p class="ml-5 pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia maiores porro tenetur perferendis sapiente natus odit quam totam necessitatibus ipsa!</p>
+			<div class="ml-5 mt-5"><a href="btn">Contact us</a></div>
+		</div>
+	</section>
+	<section class="count-upto my-3">
+		<div class="container mb-3">
+			<div class="row">
+				<div class="col-md-3 m-auto">
+					<p class="val-p" id="val1">0</p>
+					<h5><span>Lakh</span> lives touched</h5>
 				</div>
-				<div class="slide-two">
-					<img src="image/logo1.png" class="img-right" alt="">
+				<div class="col-md-3 m-auto">
+					<p class="val-p" id="val2">0</p>
+					<h5><span>Years</span> of experience</h5>
 				</div>
-			</div>
-		</section>
-		<section class="info">
-			<div class="left_sec1">
-				<h2 class="welcome">Welcome to <span class="welcome_span">Sanjivini</span></h2>
-				<div class="services">
-					<div class="service-left">
-						<h3>Emergency Help</h3>
-						<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius eaque aperiam debitis ducimus quibusdam sit enim, amet provident corrupti? Natus?</p>
-					</div>
-					<div class="service-right">
-						<h3>Qualified doctor</h3>
-						<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius eaque aperiam debitis ducimus quibusdam sit enim, amet provident corrupti? Natus?</p>
-					</div>
-				</div>
-				<div class="services">
-					<div class="service-left">
-						<h3>Great serveice</h3>
-						<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius eaque aperiam debitis ducimus quibusdam sit enim, amet provident corrupti? Natus?</p>
-					</div>
-					<div class="service-right">
-						<h3>Medical treatment</h3>
-						<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius eaque aperiam debitis ducimus quibusdam sit enim, amet provident corrupti? Natus?</p>
-					</div>
+				<div class="col-md-3 m-auto">
+					<p class="val-p" id="val3">0</p>
+					<h5><span>Expert</span> doctors</h5>
 				</div>
 			</div>
-			<div class="right_sec1">
-				<h2>Book Appointments</h2>
-				<form class="apntform">
-					<div>
-						<label for="name">Name</label><br>
-						<input type="text" name="" id="">
-					</div>
-					<div>
-						<label for="contact">Contact</label><br>
-						<input type="text" name="" id="">
-					</div>
-					<div>
-						<label for="doctor">Doctor</label><br>
-						<select>
-							<option value="">Choose doctor</option>
-						</select>
-					</div>
-					<div>
-						<label for="date">Date</label><br>
-						<input type="date" name="" id="">
-					</div>
-					<div>
-						<label for="time">Time</label><br>
-						<input type="time" name="" id="">
-					</div>
-					<button type="submit">Book</button>
-				</form>
-			</div>
-		</section>
-		<section class="hosp_stat">
-			<div class="stat_div">
-				<p class="stat_head">500+</p>
-				<p class="stat_para"><span class="span_stat">Lakh</span> lives touched</p>
-			</div>
-			<div class="stat_div">
-				<p class="stat_head">70+</p>
-				<p class="stat_para"><span class="span_stat">Years</span> of experience</p>
-			</div>
-			<div class="stat_div">
-				<p class="stat_head">200+</p>
-				<p class="stat_para"><span class="span_stat">Expert</span> doctors</p>
-			</div>
-		</section>
-		<!-- <section class="video_sec">
-			<div class="left_sec1">
-				<p class="video_head">Video</p>
-				<p class="video_para">Watch some of the most complicated surgeries performed in a 3D interpretation presented by our team for educational purpose only.</p>
-				<div class="videos">
-					<div class="box">
-						<iframe width="560" height="315" style="width: 100%;
-					height: inherit;" src="https://www.youtube.com/embed/3Nf6Q2skGOM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-					<div class="box">
-						<iframe width="560" height="315" style="width: 100%;
-					height: inherit;" src="https://www.youtube.com/embed/cKnw7HWzbGU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-				</div>
-				<div align="center">
-					<a href="" class="more_btn">View More</a>
-				</div>
-			</div>
-			<hr class="hr3">
-			</hr>
-			<div class="right_sec1">
-				<p class="blog_head">Blog</p>
-				<div class="blog_box">
-					<div class="blog_sec">
-						<div>
-							<img src="image/5-1.jpg" class="img_prop1">
+		</div>
+	</section>
+	<section class="apointment-sec py-3">
+		<div class="container mx-3">
+			<div class="row">
+				<div class="col-md-6 m-auto">
+					<h3>Book Appointment</h3>
+					<form method="POST" class="mt-3">
+						<div class="form-group">
+							<label for="name">Name</label>
+							<input type="text" name="name" class="form-control">
 						</div>
-						<div class="name_sec">
-							<p class="name_head">Dr. Bograppa</p>
-							<p class="date_head">21 July 2020</p>
+						<div class="form-group">
+							<label for="contact">Contact</label>
+							<input type="text" name="contact" class="form-control">
 						</div>
-					</div>
-					<p class="blog_para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					<a href="" class="more1">Read More</a>
-				</div>
-				<div align="center" style="margin-top: 15%;">
-					<a href="" class="more_btn">View More</a>
+						<div class="form-group">
+							<label for="department">Department</label>
+							<select name="spec" id="spec" class="form-control">
+								<option></option>
+								<?php
+								include "connect.php";
+								$sql = "SELECT * FROM d_specl ";
+								$cnt = mysqli_query($con, $sql);
+
+								if ($cnt) {
+									while ($row = mysqli_fetch_assoc($cnt)) {
+										$id = $row["s_id"];
+										$name = $row["s_name"];
+								?>
+										<option value="<?php echo $id ?>"><?php echo $name ?></option>
+								<?php
+									}
+								}
+								?>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="doctor">Doctor</label>
+							<select name="docName" id="docName" class="form-control"></select>
+						</div>
+						<div class="form-group">
+							<label for="date">Date</label>
+							<input type="date" name="date" class="form-control">
+						</div>
+						<div class="form-group">
+							<label for="time">Time</label>
+							<input type="time" name="time" class="form-control">
+						</div>
+						<button type="submit" class="book" name="book">Book</button>
+					</form>
 				</div>
 			</div>
-		</section> -->
-		<?php include("cmn_file/footer_default.php"); ?>
-	</div>
+
+		</div>
+	</section>
+
+	<?php include("cmn_file/footer_default.php"); ?>
+
+	<script src="js/jquery-1.8.1.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#spec').change(function() {
+
+				var s_id = $('#spec').val();
+
+				$('#docName').empty(); //remove all existing options
+
+				$.get('ddck.php', {
+					's_id': s_id
+				}, function(return_data) {
+					if (return_data.data.length > 0) {
+						$.each(return_data.data, function(key, value) {
+							$("#docName").append("<option value='" + value.doc_id + "'>" + value.f_name + ' ' + value.l_name + "</option>");
+						});
+					}
+				}, "json");
+			});
+		});
+
+		document.addEventListener("DOMContentLoaded", function() {
+			function animateValue(id1, id2, id3) {
+				var obj1 = document.getElementById(id1);
+				var current1 = parseInt(obj1.innerHTML);
+
+				var obj2 = document.getElementById(id2);
+				var current2 = parseInt(obj2.innerHTML);
+
+				var obj3 = document.getElementById(id3);
+				var current3 = parseInt(obj3.innerHTML);
+
+				setInterval(function() {
+					obj1.innerHTML = current1++;
+					if (obj1.innerHTML > 200) {
+						obj1.innerHTML = 200 + "+";
+					}
+
+					obj2.innerHTML = current2++;
+					if (obj2.innerHTML > 70) {
+						obj2.innerHTML = 70 + "+";
+					}
+
+					obj3.innerHTML = current3++;
+					if (obj3.innerHTML > 80) {
+						obj3.innerHTML = 80 + "+";
+					}
+				}, 10);
+			}
+
+			animateValue('val1', 'val2', 'val3');
+		});
+	</script>
 </body>
+
 
 </html>

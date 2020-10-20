@@ -1,0 +1,251 @@
+section.top-section {
+  width: 100%;
+  height: 60vh;
+  background: url(image/background.jpg);
+  background-position-y: 16%;
+}
+.index-background {
+  height: 100%;
+  background: #067cacbf;
+  clip-path: polygon(0 0, 70% 0, 50% 100%, 0 100%);
+}
+.index-background h1 {
+  color: white;
+}
+.index-background p {
+  color: white;
+  width: 45%;
+}
+.index-background a {
+  background: lightgray;
+  padding: 10px 10px;
+  color: #067cac;
+  text-decoration: none;
+}
+.index-background a:hover {
+  background: black;
+  color: white;
+}
+.box {
+  padding: 15px 2%;
+  border: 1px solid #067cac;
+  border-radius: 20px;
+}
+i.fas.fa-clock {
+  font-size: 40px;
+  color: #067cac;
+  margin-left: 30px;
+}
+.box h3 {
+  margin: auto 5px;
+  color: #067cac;
+  font-size: 25px;
+}
+.box p {
+  width: 90%;
+  margin: 8% auto;
+  text-align: justify;
+  font-size: 15px;
+}
+.col-md-3.m-auto.box:hover {
+  background: #067cac;
+}
+.col-md-3.m-auto.box:hover h3 {
+  color: white;
+}
+.col-md-3.m-auto.box:hover p {
+  color: white;
+}
+.count-up-to-sec p {
+  text-align: center;
+  font-size: 60px;
+}
+.val-p {
+  font-size: 70px;
+  text-align: center;
+  margin: 5px;
+  color: #067cac;
+}
+.count-upto h5 {
+  text-align: center;
+}
+.count-upto span {
+  color: #067cac;
+  font-size: 35px;
+}
+section.apointment-sec {
+  width: 100%;
+  height: 115vh;
+  background: url(image/reception.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 37%;
+}
+section.apointment-sec .container {
+  width: 60%;
+  height: 100%;
+  background: #067cac;
+}
+section.apointment-sec.py-3 h3 {
+  color: white;
+  text-align: center;
+  margin-top: 10%;
+}
+section.apointment-sec.py-3 label {
+  color: white;
+  font-weight: bold;
+}
+.book {
+  border: 1px solid white;
+  color: white;
+  font-size: 15px;
+  padding: 8px 15px;
+  background: transparent;
+}
+.book:hover {
+  background: black;
+  border: 1px solid black;
+}
+.route h7 {
+  font-size: 15px;
+  margin: auto 1%;
+  color: gray;
+}
+i.fas.fa-arrow-right {
+  font-size: 18px;
+  margin: auto 0;
+  color: gray;
+}
+img.img_prop1 {
+  width: 100%;
+}
+.inner_cont h5 {
+  text-align: center;
+  color: #067cac;
+}
+.card-footer p {
+  text-align: center;
+}
+input.btn.btn-primary.login {
+  font-size: 15px;
+}
+.links a.nav-link {
+  color: #067cac;
+}
+.form-sec .row {
+  background: #067cac;
+  padding: 5% 0;
+}
+.check input[type="checkbox"] {
+  margin: auto;
+}
+.hlt_head {
+  margin: auto;
+  color: white;
+}
+.patient label {
+  color: white;
+  font-weight: 100;
+}
+.overview-sec .row {
+  width: 100%;
+  margin-top: 5%;
+}
+.overview-sec .card {
+  padding: 20px;
+  border-radius: 10px;
+}
+.overview-sec p {
+  text-align: center;
+  font-size: 70px;
+  color: #067cac;
+}
+.overview-sec h7 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+.operation-sec a {
+  text-decoration: none;
+  text-align: center;
+  color: #067cac;
+  font-size: 20px;
+}
+.operation-sec .card {
+  padding: 20% 0;
+  border-radius: 10px;
+}
+.operation-sec .card:hover {
+  color: white;
+  background: #067cac;
+  transition: 0.5s ease;
+}
+.search input.form-control {
+  width: 20%;
+}
+.search {
+  width: 100%;
+  justify-content: flex-end;
+}
+.search input.btn_search {
+  background: #067cac;
+  border: none;
+  color: white;
+}
+.vpdata_sec .row {
+  background: white;
+  padding: 5% 0;
+}
+.vpdata_sec thead {
+  color: #067cac;
+}
+.vpdata_sec tbody div {
+  text-align: center;
+}
+.top-row {
+  width: 100%;
+  background: white;
+  padding: 5% 0;
+}
+input.uppatbtn {
+  padding: 10px 15px;
+  border: none;
+  background: #067cac;
+  color: white;
+}
+input.reststbtn {
+  padding: 10px 15px;
+  color: white;
+  border: none;
+  background: #067cac;
+}
+input.asgnwardbtn {
+  padding: 15px 10px;
+  border: none;
+  background: #067cac;
+  color: white;
+}
+input.docvisbtn {
+  padding: 10px 20px;
+  border: none;
+  background: #067cac;
+  color: white;
+}
+input.btn_calc {
+  padding: 10px;
+  background: #067cac;
+  border: none;
+  color: white;
+}
+input.btn_submit.mt-3 {
+  padding: 10px;
+  background: #067cac;
+  border: none;
+  color: white;
+}
+input.btn_adddoc {
+  padding: 10px;
+  background: #067cac;
+  border: none;
+  color: white;
+}

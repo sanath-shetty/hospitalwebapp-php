@@ -18,13 +18,18 @@
         <div class="collapse navbar-collapse" id="navbarColor03">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a href="dashboard_patientadmin.php" class="nav-link">Home</a>
+                    <a href="index.php" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="change_pswd.php">Change Password</a>
+                    <a class="nav-link" href="index.php#contact">Contact</a>
                 </li>
-                <li class="nav-item">
-                    <a href="logout.php" class="nav-link"><?php echo $user; ?>-Logout</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" class="nav-link" href="meetdoctor.php">Doctor</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="login.php">Login</a>
+                    </div>
                 </li>
             </ul>
         </div>

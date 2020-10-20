@@ -1,4 +1,5 @@
-<?php session_start();
+<?php
+session_start();
 include('connect.php');
 
 $sql = "SELECT * FROM a_patient where padmin_id='" . $_SESSION["pa_session"] . "'";
@@ -18,46 +19,48 @@ if (mysqli_num_rows($result) > 0) {
 	<title>Sanjivini Hospital-MeetDoctor</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="css/fonts.css">
-	<link rel="stylesheet" href="font.css">
-	<link rel="stylesheet" href="dashboard_patientadmin.css">
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="cmn_file/nav-style.css">
+
+	<style>
+		body {
+			background: url(image/dashboard_background.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+	</style>
 </head>
 
 <body>
-	<div class="container">
-		<section class="navbar">
-			<div class="logo_sec" align="center">
-				<div>
-					<img src="image/logo.png" class="navbar_img">
-				</div>
+	<?php include("cmn_file/login_topnav_patient.php"); ?>
+	<div class="route my-3">
+		<div class="container">
+			<div class="row">
+				<h7>Home</h7>
+				<i class="fas fa-arrow-right"></i>
+				<h7>Patient admin</h7>
 			</div>
-			<div class="nav_sec" align="right">
-				<ul class="ul_nav_sec">
-					<li>
-						<a href="#" class="chng_clr">Home</a>
-					</li>
-					<li>
-						<a href="change_pswd.php" class="chng_clr">Change Password</a>
-					</li>
-					<li>
-						<a href="logout.php"><?php echo $user; ?></a>
-						<a href="logout.php" class="chng_clr">-Logout</a>
-					</li>
-				</ul>
+		</div>
+	</div>
+	<div class="container links">
+		<h3 class="dashboard_head">Patient Admin Interface </h3>
+		<ul class="nav nav-tabs">
+			<li class="nav-item">
+				<a class="nav-link active" data-toggle="tab" href="#overview">Overview</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" href="#adminoperation">Admin operation</a>
+			</li>
+		</ul>
+		<div id="myTabContent" class="tab-content">
+			<div class="tab-pane fade active show" id="overview">
+				<?php include "overview.php" ?>
 			</div>
-		</section>
-		<section class="menu_sec">
-			<div class="inner-div">
-				<p class="dashboard_head">Patient Admin Interface </p>
-				<div class="box">
-					<ul class="list_ul">
-						<li><a href="patientdata_form.php">Add Patient Data</a></li>
-						<li><a href="vpatientdetail.php">View Patient Data</a></li>
-						<li><a href="vwardasgn.php">View Ward Assigned</a></li>
-						<li><a href="bills.php">Bills list</a></li>
-					</ul>
-				</div>
+			<div class="tab-pane fade" id="adminoperation">
+				<?php include "patientadmin_operation.php" ?>
 			</div>
-		</section>
+		</div>
 	</div>
 </body>
 

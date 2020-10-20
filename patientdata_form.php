@@ -1,6 +1,6 @@
-<?php session_start();
-include('connect.php');
-
+<?php
+session_start();
+include "connect.php";
 $sql = "SELECT * FROM a_patient where padmin_id='" . $_SESSION["pa_session"] . "'";
 $result = mysqli_query($con, $sql);
 if (mysqli_num_rows($result) > 0) {
@@ -22,7 +22,7 @@ $dateOfBirth = "";
 
 if (isset($_POST["save_patient"])) {
 
-	$id = $_POST['ptn_id'];
+	$id = $pid;
 	$fname = $_POST['p_fname'];
 	$lname = $_POST['p_lname'];
 	$date = $_POST['p_dob'];
@@ -57,7 +57,6 @@ if (isset($_POST["save_patient"])) {
 }
 
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -65,19 +64,37 @@ if (isset($_POST["save_patient"])) {
 	<title>Sanjivini Hospital-MeetDoctor</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="css/fonts.css">
-	<link rel="stylesheet" href="font.css">
-	<link rel="stylesheet" href="patientdata_form.css">
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="cmn_file/nav-style.css">
+
+	<style>
+		body {
+			background: url(image/dashboard_background.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+	</style>
 </head>
 
 <body>
-	<div class="container">
-		<?php include("cmn_file/login_topnav_patient.php"); ?>
-		<section class="data_sec">
-			<p class="data_head">Add Patient</p>
-			<form action="" method="POST">
-				<div align="right">
+	<?php include("cmn_file/login_topnav_patient.php"); ?>
+	<div class="route my-3">
+		<div class="container">
+			<div class="row">
+				<h7>Home</h7>
+				<i class="fas fa-arrow-right"></i>
+				<h7>Patient admin</h7>
+			</div>
+		</div>
+	</div>
+	<section class="form-sec container">
+		<div class="row">
+			<div class="col-md-8 m-auto">
+				<form class="patient" method="POST">
 					<?php
 					include('connect.php');
+					$pid = "";
 					$sq = "SELECT `p_id` FROM `patient_data` ORDER BY `p_id` desc LIMIT 1";
 					$ctn = mysqli_query($con, $sq);
 					if (mysqli_num_rows($ctn) > 0) {
@@ -89,53 +106,92 @@ if (isset($_POST["save_patient"])) {
 						$pid = 'P01';
 					}
 					?>
-					<input type="text" name="ptn_id" class="inp_id" value="<?php echo $pid; ?>">
-				</div>
-				<input type="text" name="p_fname" placeholder="First Name" class="inp_fname">
-				<input type="text" name="p_lname" placeholder="Last Name" class="inp_lname">
-				<div style="display: flex; margin-top: 1%;">
+					<div class="form-group">
+						<label for="fname">First name</label>
+						<input type="text" name="p_fname" class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="lname">Last name</label>
+						<input type="text" name="p_lname" class="form-control">
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6 m-auto">
+							<label for="date">Date</label>
+							<input type="date" name="p_dob" id="date" class="form-control">
+						</div>
+						<div class="form-group col-md-6 m-auto">
+							<label for="age">Age</label>
+							<input type="number" name="p_age" value="" id="age" class="form-control">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6 m-auto">
+							<label for="blood">Blood Group</label>
+							<select class="form-control" name="p_bg">
+								<option>Select Group</option>
+								<option value="A+ve">A+ve</option>
+								<option value="A-ve">A-ve</option>
+								<option value="B+ve">B+ve</option>
+								<option value="B-ve">B-ve</option>
+								<option value="O+ve">O+ve</option>
+								<option value="O-ve">O-ve</option>
+								<option value="Ab+ve">Ab+ve</option>
+								<option value="AB-ve">AB-ve</option>
+							</select>
+						</div>
+						<div class="form-group col-md-6 m-auto">
+							<label for="contact">Contact</label>
+							<input type="number" name="p_cont" class="form-control">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="address">Address</label>
+						<textarea class="form-control" name="p_adrs" placeholder="Address Here"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="state">State</label>
+						<select class="form-control" name="p_state">
+							<option>Select State</option>
+							<?php $sql = mysqli_query($con, "SELECT * FROM state ORDER by st_name ASC");
+							while ($read = mysqli_fetch_array($sql)) {
+							?>
+								<option value="<?php echo $read['st_id']; ?>"><?php echo $read['st_name']; ?></option>
+							<?php } ?>
+						</select>
+					</div>
 
-					<input type="date" name="p_dob" id="date" class="inp_date">
-					<input type="number" name="p_age" value="" id="age" class="inp_age">
+					<div class="row">
+						<div class="form-group col-md-6 m-auto">
+							<label for="city">City</label>
+							<input type="text" name="p_city" placeholder="city" class="form-control">
+						</div>
+						<div class="form-group col-md-6 m-auto">
+							<label for="pincode">Pin code</label>
+							<input type="number" name="p_pin" class="form-control">
+						</div>
+					</div>
 
-					<select class="bgroup" name="p_bg">
-						<option>Select Group</option>
-						<option value="A+ve">A+ve</option>
-						<option value="A-ve">A-ve</option>
-						<option value="B+ve">B+ve</option>
-						<option value="B-ve">B-ve</option>
-						<option value="O+ve">O+ve</option>
-						<option value="O-ve">O-ve</option>
-						<option value="Ab+ve">Ab+ve</option>
-						<option value="AB-ve">AB-ve</option>
-					</select>
-					<input type="number" name="p_cont" placeholder="contact" class="inp_cont">
-				</div>
-				<div style="display: flex; margin-top: 1%;">
-					<textarea class="txt_address" name="p_adrs" placeholder="Address Here"></textarea>
-					<select class="sstate" name="p_state">
-						<option>Select State</option>
-						<?php $sql = mysqli_query($con, "SELECT * FROM state ORDER by st_name ASC");
-						while ($read = mysqli_fetch_array($sql)) {
-						?>
-							<option value="<?php echo $read['st_id']; ?>"><?php echo $read['st_name']; ?></option>
-						<?php } ?>
-					</select>
-					<input type="text" name="p_city" placeholder="city" class="inp_city">
-					<input type="number" name="p_pin" placeholder="Pin Code" class="inp_pin">
-				</div>
-				<div style="display: flex; margin-top: 1%;">
-					<textarea class="txt_occupation" name="p_job" placeholder="occupation"></textarea>
-					<input type="email" name="p_email" placeholder="email" class="inp_email">
-				</div>
-				<div style="display: flex; margin-top: 1%;">
-					<input type="number" name="p_hei" placeholder="height" class="inp_hgt">
-					<input type="number" name="p_wei" placeholder="weight" class="inp_wgt">
-				</div>
-				<div>
-					<p class="health_issue">Any previous health issues?</p>
+					<div class="form-group">
+						<label for="occupation">Occupation</label>
+						<textarea class="form-control" name="p_job"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="email" name="p_email" class="form-control">
+					</div>
+					<div class="row">
+						<div class="from-group col-md-6 m-auto">
+							<label for="height">Height</label>
+							<input type="number" name="p_hei" class="form-control">
+						</div>
+						<div class="form-group col-md-6 m-auto">
+							<label for="width">Width</label>
+							<input type="number" name="p_wei" class="form-control">
+						</div>
+					</div>
 
-					<div style="display: flex;">
+					<label for="other">Any previous health issues?</label>
+					<div class="form-group row check">
 						<input type="checkbox" name="healthissue[]" value="diabeties">
 						<p class="hlt_head">Diabeties</p>
 						<input type="checkbox" name="healthissue[]" value="bloodpressure">
@@ -145,15 +201,16 @@ if (isset($_POST["save_patient"])) {
 						<input type="checkbox" name="healthissue[]" value="skinallergies">
 						<p class="hlt_head">Skin Allergies</p>
 					</div>
-					<p class="other_issues">Any Other</p>
-					<textarea class="txt_other" name="p_oissue"></textarea>
-				</div>
-				<div align="center">
-					<input type="submit" name="save_patient" value="Add" class="btn_submit">
-				</div>
-			</form>
-		</section>
-	</div>
+					<div class="from-group">
+						<label for="otr">Any Other</label>
+						<textarea class="form-control" name="p_oissue"></textarea>
+					</div>
+					<input type="submit" name="save_patient" value="Add" class="btn btn-primary mt-3">
+				</form>
+			</div>
+		</div>
+
+	</section>
 </body>
 <script>
 	document.getElementById("age").addEventListener("click", function() {

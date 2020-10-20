@@ -1,0 +1,327 @@
+.
+.
+.
+.
+.
+INDEX
+<!-- <section class="slider_sec">
+		<div class="transp">
+			<div class="slide-one">
+				<p class="slider_head">Sanjivini Hospital</p>
+				<p class="slider_para">Your health is our wealth. <span class="span1">So stay sick fellas.</span></p>
+				<div class="slider_btn">
+					<a href="meetdoctor.php" class="btn_doc">Our Doctors</a>
+					<a href="" class="btn_cont">Contact us</a>
+				</div>
+			</div>
+			<div class="slide-two">
+				<img src="image/logo1.png" class="img-right" alt="">
+			</div>
+		</div>
+	</section>
+	<section class="info">
+		<div class="left_sec1">
+			<h2 class="welcome">Welcome to <span class="welcome_span">Sanjivini</span></h2>
+			<div class="services">
+				<div class="service-left">
+					<h3><i class="fas fa-ambulance"></i> Help</h3>
+					<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius eaque aperiam debitis ducimus quibusdam sit enim, amet provident corrupti? Natus?</p>
+				</div>
+				<div class="service-right">
+					<h3><i class="fas fa-user-md"></i> Qualified doctor</h3>
+					<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius eaque aperiam debitis ducimus quibusdam sit enim, amet provident corrupti? Natus?</p>
+				</div>
+			</div>
+			<div class="services">
+				<div class="service-left">
+					<h3><i class="fas fa-broom"></i> Great serveice</h3>
+					<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius eaque aperiam debitis ducimus quibusdam sit enim, amet provident corrupti? Natus?</p>
+				</div>
+				<div class="service-right">
+					<h3><i class="fas fa-briefcase-medical"></i> Medical treatment</h3>
+					<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius eaque aperiam debitis ducimus quibusdam sit enim, amet provident corrupti? Natus?</p>
+				</div>
+			</div>
+		</div>
+		<div class="right_sec1">
+			<h2>Book Appointments</h2>
+			<form class="apntform">
+				<div>
+					<label for="name">Name</label><br>
+					<input type="text" name="" id="">
+				</div>
+				<div>
+					<label for="contact">Contact</label><br>
+					<input type="text" name="" id="">
+				</div>
+				<div>
+					<label for="doctor">Specialization</label><br>
+					<select class="sel_cdoc" name="spec" id="spec">
+						<option></option>
+						<?php
+						include "connect.php";
+						$sql = "SELECT * FROM d_specl ";
+						$cnt = mysqli_query($con, $sql);
+
+						if ($cnt) {
+							while ($row = mysqli_fetch_assoc($cnt)) {
+								$id = $row["s_id"];
+								$name = $row["s_name"];
+						?>
+								<option value="<?php echo $id ?>"><?php echo $name ?></option>
+						<?php
+							}
+						}
+						?>
+					</select>
+
+					<label for="doctor">Doctor</label><br>
+					<select name="docName" id="docName"></select>
+				</div>
+				<div>
+					<label for="date">Date</label><br>
+					<input type="date" name="date">
+				</div>
+				<div>
+					<label for="time">Time</label><br>
+					<input type="time" name="time">
+				</div>
+				<button type="submit" name="book">Book</button>
+			</form>
+		</div>
+	</section>
+	<section class="hosp_stat">
+		<div class="stat_div">
+			<p class="stat_head" id="val1">0</p>
+			<p class="stat_para"><span class="span_stat">Lakh</span> lives touched</p>
+		</div>
+		<div class="stat_div">
+			<p class="stat_head" id="val2">0</p>
+			<p class="stat_para"><span class="span_stat">Years</span> of experience</p>
+		</div>
+		<div class="stat_div">
+			<p class="stat_head" id="val3">0</p>
+			<p class="stat_para"><span class="span_stat">Expert</span> doctors</p>
+		</div>
+	</section>
+
+    <?php include("cmn_file/footer_default.php"); ?> -->
+	<script src="js/jquery-1.8.1.min.js"></script>
+
+    <script>
+		$(document).ready(function() {
+			$('#spec').change(function() {
+
+				var s_id = $('#spec').val();
+
+				$('#docName').empty(); //remove all existing options
+
+				$.get('ddck.php', {
+					's_id': s_id
+				}, function(return_data) {
+					if (return_data.data.length > 0) {
+						$.each(return_data.data, function(key, value) {
+							$("#docName").append("<option value='" + value.doc_id + "'>" + value.f_name + ' ' + value.l_name + "</option>");
+						});
+					}
+				}, "json");
+
+			});
+
+		});
+
+		function animateValue(id1, id2, id3) {
+			var obj1 = document.getElementById(id1);
+			var current1 = parseInt(obj1.innerHTML);
+
+			var obj2 = document.getElementById(id2);
+			var current2 = parseInt(obj2.innerHTML);
+
+			var obj3 = document.getElementById(id3);
+			var current3 = parseInt(obj3.innerHTML);
+
+			setInterval(function() {
+				obj1.innerHTML = current1++;
+				if (obj1.innerHTML > 500) {
+					obj1.innerHTML = 500;
+				}
+
+				obj2.innerHTML = current2++;
+				if (obj2.innerHTML > 70) {
+					obj2.innerHTML = 70;
+				}
+
+				obj3.innerHTML = current3++;
+				if (obj3.innerHTML > 200) {
+					obj3.innerHTML = 200;
+				}
+			}, 10);
+		}
+
+		animateValue('val1', 'val2', 'val3');
+	</script>
+INDEX
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+    .
+	MEET DOCTORS
+	.
+	.
+	.
+	.
+	<div class="container">
+		<?php include("cmn_file/topnav_default.php"); ?>
+		<section class="slider_sec">
+			<p class="slider_head">Meet our Doctors</p>
+			<div class="quick_link">
+				<p class="quick_link_head">Quick links</p>
+				<hr class="hr1">
+				<div style="display: flex;">
+					<p class="quick_head">Contact us</p>
+				</div>
+			</div>
+		</section>
+		<!-- <section class="searchdoc_sec">
+			<p class="searchdoc_head">Search Doctors</p>
+			<form method="POST" action="">
+				<div class="search_op">
+					<select class="op_list" name="drop_spec">
+						<option>All</option>
+						<?php
+						include 'connect.php';
+
+						$sql = "SELECT * FROM d_specl";
+						$result = mysqli_query($con, $sql);
+
+						if (mysqli_num_rows($result) > 0) {
+							while ($rows = mysqli_fetch_array($result)) { ?>
+								<option value="<?php echo $rows['s_id']; ?>"><?php echo $rows['s_name']; ?></option>
+						<?php   }
+						}
+						?>
+					</select>
+					<p class="op_or">OR</p>
+					<input type="text" name="inp_name" class="input1">
+				</div>
+				<button class="btn_search" name="btn_search">Search</button>
+			</form>
+		</section> -->
+		<section class="doc_list">
+			<div class="row">
+				<?php
+				include 'connect.php';
+				ini_set('display_errors', 1);
+				ini_set('display_startup_errors', 1);
+				error_reporting(E_ALL);
+				$f_name = "";
+				$l_name = "";
+
+				if (isset($_POST['btn_search'])) {
+
+					if (!empty($_POST['drop_spec'])) {
+						$drop_spec = $_POST['drop_spec'];
+
+						$sql = "SELECT * FROM doctor_data a, d_specl b, d_qualific c WHERE a.s_id = b.s_id && a.q_id = c.q_id && a.s_id = '$drop_spec'";
+						$result = mysqli_query($con, $sql);
+
+						if (mysqli_num_rows($result) > 0) {
+							while ($rows = mysqli_fetch_array($result)) {
+								$f_name = $rows['f_name'];
+								$l_name = $rows['l_name'];
+								$specl = $rows['s_name'];
+								$qualific = $rows['q_name'];
+				?>
+								<div class="box">
+									<img src="uploads/<?php echo $rows['doc_img']; ?>" class="img_prop1">
+									<div class="overlap">
+										<div class="inner_cont">
+											<p class="doc_name"><?php echo $f_name . ' ' . $l_name; ?></p>
+											<p class="doc_qualific"><?php echo $specl; ?></p>
+											<p class="doc_spec"><?php echo $qualific; ?></p>
+										</div>
+									</div>
+									<!-- <div class="overlap1">
+					                    <i class="fas fa-user-md"></i><br>
+					                    <a href="" class="a_bookapp">Book Appointment</a>
+				                    </div> -->
+								</div>
+							<?php           }
+						}
+					}
+
+					if (!empty($_POST['inp_name'])) {
+						$inp_name = $_POST['inp_name'];
+
+						$sql = "SELECT * FROM doctor_data a, d_specl b, d_qualific c WHERE a.s_id = b.s_id && a.q_id = c.q_id && a.f_name LIKE '$inp_name%'";
+						$result = mysqli_query($con, $sql);
+
+						if (mysqli_num_rows($result) > 0) {
+							while ($rows = mysqli_fetch_array($result)) {
+								$f_name = $rows['f_name'];
+								$l_name = $rows['l_name'];
+								$specl = $rows['s_name'];
+								$qualific = $rows['q_name'];
+							?>
+								<div class="box">
+									<img src="uploads/<?php echo $rows['doc_img']; ?>" class="img_prop1">
+									<div class="overlap">
+										<div class="inner_cont">
+											<p class="doc_name"><?php echo $f_name . ' ' . $l_name; ?></p>
+											<p class="doc_qualific"><?php echo $specl; ?></p>
+											<p class="doc_spec"><?php echo $qualific; ?></p>
+										</div>
+									</div>
+									<!-- <div class="overlap1">
+					                    <i class="fas fa-user-md"></i><br>
+					                    <a href="" class="a_bookapp">Book Appointment</a>
+				                    </div> -->
+								</div>
+							<?php           }
+						}
+					}
+				} else {
+					$sql = "SELECT * FROM doctor_data a, d_specl b, d_qualific c WHERE a.s_id = b.s_id && a.q_id = c.q_id";
+					$result = mysqli_query($con, $sql);
+
+					if (mysqli_num_rows($result) > 0) {
+						while ($rows = mysqli_fetch_array($result)) {
+							$f_name = $rows['f_name'];
+							$l_name = $rows['l_name'];
+							$specl = $rows['s_name'];
+							$qualific = $rows['q_name'];
+							?>
+							<div class="box">
+								<img src="uploads/<?php echo $rows['doc_img']; ?>" class="img_prop1">
+								<div class="overlap">
+									<div class="inner_cont">
+										<p class="doc_name"><?php echo $f_name . ' ' . $l_name; ?></p>
+										<p class="doc_qualific"><?php echo $specl; ?></p>
+										<p class="doc_spec"><?php echo $qualific; ?></p>
+									</div>
+								</div>
+								<!-- <div class="overlap1">
+					        <i class="fas fa-user-md"></i><br>
+					        <a href="" class="a_bookapp">Book Appointment</a>
+				        </div> -->
+							</div>
+				<?php       }
+					}
+				}
+				?>
+
+			</div>
+		</section>
+		<?php include("cmn_file/footer_default.php"); ?>
+	</div>
+	MEET DOCTORS
+	.
+	.
+	.
+	.

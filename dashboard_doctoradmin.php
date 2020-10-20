@@ -18,45 +18,48 @@ if (mysqli_num_rows($result) > 0) {
 	<title>Sanjivini Hospital-MeetDoctor</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="css/fonts.css">
-	<link rel="stylesheet" href="font.css">
-	<link rel="stylesheet" href="dashboard_doctoradmin.css">
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="cmn_file/nav-style.css">
+
+	<style>
+		body {
+			background: url(image/dashboard_background.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+	</style>
 </head>
 
 <body>
-	<div class="container">
-		<section class="navbar">
-			<div class="logo_sec" align="center">
-				<div>
-					<img src="image/logo.png" class="navbar_img">
-				</div>
-			</div>
-			<div class="nav_sec" align="right">
-				<ul class="ul_nav_sec">
-					<li>
-						<a href="dashboard_doctoradmin.php" class="chng_clr">Home</a>
-					</li>
-					<li>
-						<a href="change_pswd.php" class="chng_clr">Change Password</a>
-					</li>
-					<li>
-						<a href="logout.php" class="chng_clr">Logout</a>
-					</li>
-				</ul>
-			</div>
-		</section>
-		<section class="menu_sec">
-			<p class="dashboard_head">Doctor Admin Interface </p>
+	<?php include("cmn_file/login_topnav_patient.php"); ?>
+	<div class="route my-3">
+		<div class="container">
 			<div class="row">
-				<div class="box">
-					<ul class="list_ul">
-						<li><a href="doctordata_form.php">Add Doctor Data</a></li>
-						<li><a href="vdoctordetail.php">View Doctor Data</a></li>
-						<li><a href="appointment.php">Make Appointment</a></li>
-						<li><a href="viewapnt.php">Check Appointments</a></li>
-					</ul>
-				</div>
+				<h7>Home</h7>
+				<i class="fas fa-arrow-right"></i>
+				<h7>Patient admin</h7>
 			</div>
-		</section>
+		</div>
+	</div>
+	<div class="container links">
+		<h3 class="dashboard_head">Doctor Admin Interface </h3>
+		<ul class="nav nav-tabs">
+			<li class="nav-item">
+				<a class="nav-link active" data-toggle="tab" href="#overview">Overview</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" href="#adminoperation">Admin operation</a>
+			</li>
+		</ul>
+		<div id="myTabContent" class="tab-content">
+			<div class="tab-pane fade active show" id="overview">
+				<?php include "doctoroverview.php" ?>
+			</div>
+			<div class="tab-pane fade" id="adminoperation">
+				<?php include "doctoradmin_operation.php" ?>
+			</div>
+		</div>
 	</div>
 </body>
 

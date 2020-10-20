@@ -125,101 +125,143 @@ if (isset($_POST['update_doc'])) {
 	<title>Sanjivini Hospital-MeetDoctor</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="css/fonts.css">
-	<link rel="stylesheet" href="font.css">
-	<link rel="stylesheet" href="update_docdata.css">
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="cmn_file/nav-style.css">
+
+	<style>
+		body {
+			background: url(image/dashboard_background.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+	</style>
 </head>
 
 <body>
-	<div class="container">
-		<?php include("cmn_file/login_topnav_doctor.php"); ?>
-		<section class="doctor_sec">
-			<form action="" method="POST" enctype="multipart/form-data">
-				<p class="doctor_head">Update Info</p>
+	<?php include("cmn_file/login_topnav_patient.php"); ?>
+	<div class="route my-3">
+		<div class="container">
+			<div class="row">
+				<h7>Home</h7>
+				<i class="fas fa-arrow-right"></i>
+				<h7>Patient admin</h7>
+			</div>
+		</div>
+	</div>
+	<section class="doctor_sec container mb-3">
+		<div class="row top-row">
+			<div class="col-md-10 m-auto">
+				<form method="POST" enctype="multipart/form-data">
+					<div class="form-group">
+						<img src="uploads/<?php echo $cimg; ?>" width="160" height="140" class="img_sec">
 
-				<div style="margin-top: 1%;">
-					<img src="uploads/<?php echo $cimg; ?>" width="160" height="140" class="img_sec">
-					<div style="display: flex;">
-						<label class="lab_cimg">Select new image</label><br>
-
+					</div>
+					<div class="form-group">
+						<label>Select new image</label><br>
 						<input type="file" name="image" class="btn_img" value="<?php echo $cimg; ?>">
 					</div>
-				</div>
-
-				<div style="margin-top: 1%">
-					<input type="text" name="fname" placeholder="First Name" value="<?php echo $cfname; ?>" class="inp_fname">
-
-					<input type="text" name="lname" placeholder="Last Name" value="<?php echo $clname; ?>" class="inp_lname">
-				</div>
-
-				<div style="margin-top: 1%">
-					<label class="lab_dob">DOB</label>
-					<input type="date" name="date" class="inp_date" value="<?php echo $cdob; ?>">
-
-					<input type="number" name="age" placeholder="Age" class="inp_age" min="25" value="<?php echo $cage; ?>">
-
-					<select class="sel_bg" name="blood">
-						<option><?php echo $cbg ?></option>
-						<option value="A+ve">A+ve</option>
-						<option value="A-ve">A-ve</option>
-						<option value="B+ve">B+ve</option>
-						<option value="B-ve">B-ve</option>
-						<option value="O+ve">O+ve</option>
-						<option value="O-ve">O-ve</option>
-						<option value="Ab+ve">Ab+ve</option>
-						<option value="AB-ve">AB-ve</option>
-					</select>
-				</div>
-
-				<div style="margin-top: 1%">
-					<textarea class="txt_tempadd" name="tadd" placeholder="Temporary Address"><?php echo $ct_add; ?></textarea>
-
-					<textarea class="txt_peradd" name="padd" placeholder="Permanent Address"><?php echo $cp_add; ?></textarea>
-				</div>
-
-				<div>
-					<select class="sel_state" name="state">
-						<option value="<?php echo $cst; ?>"><?php echo $cst_name; ?></option>
-						<?php $sql = mysqli_query($con, "SELECT * FROM state ORDER by st_name ASC");
-						while ($read = mysqli_fetch_array($sql)) {
-						?>
-							<option value="<?php echo $read['st_id']; ?>"><?php echo $read['st_name']; ?></option>
-						<?php } ?>
-					</select>
-
-					<input type="text" name="d_city" placeholder="city" class="sel_city" value="<?php echo $ccity; ?>">
-
-					<input type="number" name="pin" placeholder="Pin Code" class="inp_pin" value="<?php echo $cpin; ?>">
-
-					<input type="number" name="cont" placeholder="Contact" class="inp_cont" value="<?php echo $ccontact; ?>">
-				</div>
-				<div style="margin-top: 1%">
-					<select class="sel_quali" name="quali">
-						<option value="<?php echo $cquali; ?>"><?php echo $cquali_name; ?></option>
-						<?php
-						$sql = mysqli_query($con, "SELECT * FROM d_qualific ORDER by q_name ASC");
-						while ($read = mysqli_fetch_array($sql)) {
-						?>
-							<option value="<?php echo $read['q_id']; ?>"><?php echo $read['q_name']; ?></option>
-						<?php } ?>
-					</select>
-
-					<select class="sel_spec" name="specl">
-						<option value="<?php echo $cspecl; ?>"><?php echo $cspecl_name; ?></option>
-						<?php
-						$sql = mysqli_query($con, "SELECT * FROM d_specl ORDER by s_name ASC");
-						while ($read = mysqli_fetch_array($sql)) {
-						?>
-							<option value="<?php echo $read['s_id']; ?>"><?php echo $read['s_name']; ?></option>
-						<?php } ?>
-					</select>
-				</div>
-				<div style="margin-top: 1%" align="center">
-					<input type="submit" name="update_doc" value="Save" class="btn_adddoc">
-				</div>
-			</form>
-			<?php echo $msg; ?>
-		</section>
-	</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label for="fname">First name</label>
+							<input type="text" name="fname" class="form-control" value="<?php echo $cfname; ?>">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="lastname">Last name</label>
+							<input type="text" name="lname" class="form-control" value="<?php echo $clname; ?>">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-4">
+							<label for="date">Date</label>
+							<input type="date" name="date" value="<?php echo $cdob; ?>" class="form-control">
+						</div>
+						<div class="form-group col-md-2">
+							<label for="age">Age</label>
+							<input type="number" class="form-control" name="age" min="25" value="<?php echo $cage; ?>">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="blood">Blood group</label>
+							<select class="form-control" name="blood">
+								<option><?php echo $cbg ?></option>
+								<option value="A+ve">A+ve</option>
+								<option value="A-ve">A-ve</option>
+								<option value="B+ve">B+ve</option>
+								<option value="B-ve">B-ve</option>
+								<option value="O+ve">O+ve</option>
+								<option value="O-ve">O-ve</option>
+								<option value="Ab+ve">Ab+ve</option>
+								<option value="AB-ve">AB-ve</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label for="temp">Temporary Address</label>
+							<textarea class="form-control" name="tadd"><?php echo $ct_add; ?></textarea>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="perm">Permanent Address</label>
+							<textarea class="form-control" name="padd"><?php echo $cp_add; ?></textarea>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label for="state">State</label>
+							<select class="form-control" name="state">
+								<option value="<?php echo $cst; ?>"><?php echo $cst_name; ?></option>
+								<?php $sql = mysqli_query($con, "SELECT * FROM state ORDER by st_name ASC");
+								while ($read = mysqli_fetch_array($sql)) {
+								?>
+									<option value="<?php echo $read['st_id']; ?>"><?php echo $read['st_name']; ?></option>
+								<?php } ?>
+							</select>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="city">City</label>
+							<input type="text" name="d_city" class="form-control" value="<?php echo $ccity; ?>">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="pin">Pin code</label>
+							<input type="number" name="pin" class="form-control" value="<?php echo $cpin; ?>">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="conatct">Contact</label>
+							<input type="number" name="cont" class="form-control" value="<?php echo $ccontact; ?>">
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label for="quali">Qualification</label>
+							<select class="form-control" name="quali">
+								<option value="<?php echo $cquali; ?>"><?php echo $cquali_name; ?></option>
+								<?php
+								$sql = mysqli_query($con, "SELECT * FROM d_qualific ORDER by q_name ASC");
+								while ($read = mysqli_fetch_array($sql)) {
+								?>
+									<option value="<?php echo $read['q_id']; ?>"><?php echo $read['q_name']; ?></option>
+								<?php } ?>
+							</select>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="spec">Specialization</label>
+							<select class="form-control" name="specl">
+								<option value="<?php echo $cspecl; ?>"><?php echo $cspecl_name; ?></option>
+								<?php
+								$sql = mysqli_query($con, "SELECT * FROM d_specl ORDER by s_name ASC");
+								while ($read = mysqli_fetch_array($sql)) {
+								?>
+									<option value="<?php echo $read['s_id']; ?>"><?php echo $read['s_name']; ?></option>
+								<?php } ?>
+							</select>
+						</div>
+					</div>
+					<input type="submit" name="update_doc" value="Update" class="btn_adddoc">
+				</form>
+			</div>
+		</div>
+		<?php echo $msg; ?>
+	</section>
 </body>
 
 </html>

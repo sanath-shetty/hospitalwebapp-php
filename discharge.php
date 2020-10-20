@@ -1,3 +1,17 @@
+<?php session_start();
+include('connect.php');
+
+$sql = "SELECT * FROM a_patient where padmin_id='" . $_SESSION["pa_session"] . "'";
+$result = mysqli_query($con, $sql);
+if (mysqli_num_rows($result) > 0) {
+	while ($row = mysqli_fetch_assoc($result)) {
+		$user = $row["pa_name"];
+	}
+} else {
+	header('location: login.php');
+}
+mysqli_close($con);
+?>
 <?php
 include 'connect.php';
 ini_set('display_errors', 1);
@@ -93,144 +107,195 @@ if (isset($_POST['submit'])) {
 	<title>Sanjivini Hospital-MeetDoctor</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="css/fonts.css">
-	<link rel="stylesheet" href="font.css">
-	<link rel="stylesheet" href="discharge.css">
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="cmn_file/nav-style.css">
+
+	<style>
+		body {
+			background: url(image/dashboard_background.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+	</style>
 </head>
 
 <body>
-	<div class="container">
-		<?php include("cmn_file/login_topnav_patient.php"); ?>
-		<section class="dis_sec">
-			<form action="" method="POST">
-				<p class="dis_head">Patient Discharge Bill</p>
-				<div>
-					<input type="text" name="p_id" value="<?php echo $p_id; ?>" placeholder="Patient Id" class="inp_pid" readonly="">
-				</div>
-				<div style="display: flex; margin-top: 1%;">
-					<input type="text" name="" placeholder="First Name" class="inp_fname" value="<?php echo $fname; ?>" readonly="">
-
-					<input type="text" name="" placeholder="Last Name" class="inp_lname" value="<?php echo $lname; ?>" readonly="">
-				</div>
-				<div style="display: flex; margin-top: 1%;">
-					<input type="text" name="" class="sel_bg" value="<?php echo $bgroup; ?>" readonly="">
-
-					<input type="number" name="" placeholder="age" class="inp_age" value="<?php echo $age; ?>" readonly="">
-
-					<input type="text" name="" class="sel_buildingg" value="<?php echo $building; ?>" readonly="">
-
-					<input type="text" name="" placeholder="Ward Number" class="inp_ward" value="<?php echo $ward; ?>" readonly="">
-				</div>
-				<table class="tab_data">
-					<tr>
-						<td class="td_left" style="padding-left: 5%;">Service Charges</td>
-						<td>
-							<div>
-								<label class="noofdays">Number of days</label>
-								<label class="chrgpday">Charges/day</label>
-								<label class="totchrg">Total</label>
+	<?php include("cmn_file/login_topnav_patient.php"); ?>
+	<div class="route my-3">
+		<div class="container">
+			<div class="row">
+				<h7>Home</h7>
+				<i class="fas fa-arrow-right"></i>
+				<h7>Patient admin</h7>
+			</div>
+		</div>
+	</div>
+	<section class="dis_sec container my-3">
+		<div class="container">
+			<div class="row top-row">
+				<div class="col-md-10 m-auto">
+					<form action="" method="POST">
+						<div class="row my-3">
+							<div class="form-group col-md-2 m-auto">
+								<label for="patientid">Patient id</label>
+								<input type="text" name="p_id" value="<?php echo $p_id; ?>" class="form-control" readonly="">
 							</div>
-						</td>
-					</tr>
-					<tr>
-						<td class="td_left" style="padding-left: 5%;">Ward Charges</td>
-						<td class="td_right">
-							<?php
-							$noday1 = "";
-							$final_wc = "0";
+							<div class="form-group col-md-5 m-auto">
+								<label for="fname">First name</label>
+								<input type="text" class="form-control" value="<?php echo $fname; ?>" readonly="">
+							</div>
+							<div class="form-group col-md-5 m-auto">
+								<label for="lname">Last name</label>
+								<input type="text" class="form-control" value="<?php echo $lname; ?>" readonly="">
+							</div>
+						</div>
+						<div class="row my-3">
+							<div class="form-group col-md-2 m-auto">
+								<label for="blood">Blood group</label>
+								<input type="text" class="form-control" value="<?php echo $bgroup; ?>" readonly="">
+							</div>
+							<div class="form-group col-md-2 m-auto">
+								<label for="age">Age</label>
+								<input type="number" class="form-control" value="<?php echo $age; ?>" readonly="">
+							</div>
+							<div class="form-group col-md-4 m-auto">
+								<label for="building">Building</label>
+								<input type="text" class="form-control" value="<?php echo $building; ?>" readonly="">
+							</div>
+							<div class="form-group col-md-4 m-auto">
+								<label for="ward">Ward</label>
+								<input type="text" class="form-control" value="<?php echo $ward; ?>" readonly="">
+							</div>
+						</div>
+						<table class="table my-3">
+							<thead>
+								<tr>
+									<th>Charges</th>
+									<th>Number of days</th>
+									<th>Charges/day</th>
+									<th>Total</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Ward Charges</td>
+									<?php
+									$noday1 = "";
+									$final_wc = "0";
 
-							if (isset($_POST['noday1'])) {
-								$noday1 = $_POST['noday1'];
-								$wchrg = $_POST['wchrg'];
+									if (isset($_POST['noday1'])) {
+										$noday1 = $_POST['noday1'];
+										$wchrg = $_POST['wchrg'];
 
-								$final_wc = $noday1 * $wchrg;
-							}
-							?>
-							<input type="number" name="noday1" class="inp_wcharge" value="<?php echo $noday1; ?>" required="">
-							<input type="text" name="wchrg" class="inp_wcharge" value="<?php echo $wchrg; ?>" readonly="">
-							<input type="text" name="" class="inp_wcharge" value="<?php echo $final_wc; ?>" readonly="">
-						</td>
-					</tr>
-					<tr>
-						<td class="td_left" style="padding-left: 5%;">Floor Management Charges</td>
-						<td class="td_right">
-							<?php
-							$noday2 = "";
-							$final_fmc = "0";
-
-							if (isset($_POST['noday2'])) {
-								$noday2 = $_POST['noday2'];
-								$fmchrg = $_POST['fmchrg'];
-
-								$final_fmc = $noday2 * $fmchrg;
-							}
-							?>
-							<input type="number" name="noday2" class="inp_fmcharge" value="<?php echo $noday2; ?>" required="">
-							<input type="text" name="fmchrg" class="inp_fmcharge" value="<?php echo $fmchrg; ?>" readonly="">
-							<input type="text" name="" class="inp_fmcharge" value="<?php echo $final_fmc; ?>" readonly="">
-						</td>
-					</tr>
-					<tr>
-						<td class="td_left" colspan="2" style="padding-left: 5%;">Doctors Charge</td>
-					</tr>
-					<?php
-					include 'connect.php';
-					ini_set('display_errors', 1);
-					ini_set('display_startup_errors', 1);
-					error_reporting(E_ALL);
-
-					$sql = "SELECT a.vis_count, b.f_name,b.l_name, b.vis_chrg FROM visited a, doctor_data b WHERE a.doc_id = b.doc_id && a.wasgn_id = '$id'";
-					$result = mysqli_query($con, $sql);
-
-					if (($visit = mysqli_num_rows($result)) > 0) {
-						while ($rows = mysqli_fetch_array($result)) {
-
-							$fname = $rows['f_name'];
-							$lname = $rows['l_name'];
-							$count = $rows['vis_count'];
-							$chrg = $rows['vis_chrg'];
-							$tot_dchrg = $count * $chrg;
-
-					?>
-							<tr>
-								<td class="td_left" align="center">
-									<input type="text" name="fname[]" class="inp_docname" value="<?php echo $fname . ' ' . $lname; ?>" readonly="">
-								</td>
-								<td class="td_right">
-									<input type="text" name="count" class="inp_docchrg" value="<?php echo $count; ?>" readonly="">
-									<input type="text" name="chrg" class="inp_docchrg" value="<?php echo $chrg; ?>" readonly="">
-									<?php $overall += $tot_dchrg;
+										$final_wc = $noday1 * $wchrg;
+									}
 									?>
-									<input type="text" name="tot_dchrg" class="inp_docchrg" value="<?php echo $tot_dchrg; ?>" readonly="">
-								</td>
-							</tr>
-					<?php
-						}
-					} else {
-						echo "Error Occured";
-					}
-					?>
-					<tr>
-						<td colspan="2" align="right">
-							<input type="text" name="overall" class="inp_docchrg1" value="<?php echo $overall ?>" readonly="">
-						</td>
-					</tr>
-					<tr>
-						<td class="td_left" style="padding-left: 5%;">Total</td>
-						<td class="td_right">
-							<?php
-							$grandTot = "0";
-							$grandTot = $final_wc + $final_fmc + $overall;
-							?>
-							<input type="number" name="grandTot" class="inp_tot" value="<?php echo $grandTot; ?>" readonly="">
-							<input type="submit" name="" class="btn_calc" value="Calculate">
-						</td>
-					</tr>
-				</table>
-				<div align="center">
-					<input type="submit" name="submit" value="Submit" class="btn_submit">
+									<td>
+										<input type="number" name="noday1" class="form-control" value="<?php echo $noday1; ?>" required="">
+									</td>
+									<td>
+										<input type="text" name="wchrg" class="form-control" value="<?php echo $wchrg; ?>" readonly="">
+									</td>
+									<td>
+										<input type="text" name="" class="form-control" value="<?php echo $final_wc; ?>" readonly="">
+									</td>
+								</tr>
+								<tr>
+									<td>Floor Management</td>
+									<?php
+									$noday2 = "";
+									$final_fmc = "0";
+
+									if (isset($_POST['noday2'])) {
+										$noday2 = $_POST['noday2'];
+										$fmchrg = $_POST['fmchrg'];
+
+										$final_fmc = $noday2 * $fmchrg;
+									}
+									?>
+									<td>
+										<input type="number" name="noday2" class="form-control" value="<?php echo $noday2; ?>" required="">
+									</td>
+									<td>
+										<input type="text" name="fmchrg" class="form-control" value="<?php echo $fmchrg; ?>" readonly="">
+									</td>
+									<td>
+										<input type="text" name="" class="form-control" value="<?php echo $final_fmc; ?>" readonly="">
+									</td>
+								</tr>
+								<tr>
+									<td>Doctors Charge</td>
+								</tr>
+								<?php
+								include 'connect.php';
+								ini_set('display_errors', 1);
+								ini_set('display_startup_errors', 1);
+								error_reporting(E_ALL);
+
+								$sql = "SELECT a.vis_count, b.f_name,b.l_name, b.vis_chrg FROM visited a, doctor_data b WHERE a.doc_id = b.doc_id && a.wasgn_id = '$id'";
+								$result = mysqli_query($con, $sql);
+
+								if (($visit = mysqli_num_rows($result)) > 0) {
+									while ($rows = mysqli_fetch_array($result)) {
+
+										$fname = $rows['f_name'];
+										$lname = $rows['l_name'];
+										$count = $rows['vis_count'];
+										$chrg = $rows['vis_chrg'];
+										$tot_dchrg = $count * $chrg;
+								?>
+										<tr>
+											<td>
+												<input type="text" name="fname[]" class="form-control" value="<?php echo $fname . ' ' . $lname; ?>" readonly="">
+											</td>
+											<td class="td_right">
+												<input type="text" name="count" class="form-control" value="<?php echo $count; ?>" readonly="">
+											</td>
+											<td>
+												<input type="text" name="chrg" class="form-control" value="<?php echo $chrg; ?>" readonly="">
+											</td>
+											<?php $overall += $tot_dchrg; ?>
+											<td>
+												<input type="text" name="tot_dchrg" class="form-control" value="<?php echo $tot_dchrg; ?>" readonly="">
+											</td>
+										</tr>
+								<?php
+									}
+								}
+								?>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td>
+										<input type="text" name="overall" class="form-control" value="<?php echo $overall ?>" readonly="">
+									</td>
+								</tr>
+								<tr>
+									<td>Total</td>
+									<td></td>
+									<?php
+									$grandTot = "0";
+									$grandTot = $final_wc + $final_fmc + $overall;
+									?>
+									<td>
+										<input type="number" name="grandTot" class="form-control" value="<?php echo $grandTot; ?>" readonly="">
+
+									</td>
+									<td>
+										<input type="submit" name="" class="btn_calc" value="Calculate">
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<input type="submit" name="submit" value="Discharge" class="btn_submit mt-3">
+					</form>
 				</div>
-			</form>
-		</section>
+			</div>
+		</div>
+
+	</section>
 </body>
 
 </html>

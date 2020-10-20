@@ -1,72 +1,84 @@
 body {
-	margin: 0;
+  margin: 0;
 }
 * {
-	font-family: hind siliguri;
+  font-family: hind siliguri;
 }
 .container {
-    width: 100%;
+  width: 100%;
 }
 .appont_sec {
-    width: 90%;
-    margin: 117px auto;
-    border: 1px solid gray;
-    border-radius: 10px;
-    padding-bottom: 2%;
+  width: 90%;
+  margin: 117px auto;
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding-bottom: 2%;
 }
 .appont_head {
-    text-align: center;
-    margin: 0;
-    font-size: 50px;
-    font-weight: bold;
-    color: red;
+  text-align: center;
+  margin: 0;
+  font-size: 50px;
+  font-weight: bold;
+  color: red;
 }
 .inp_date {
-    margin-left: 25.2%;
-    font-size: 18px;
-    padding: 5px;
+  margin-left: 25.2%;
+  font-size: 18px;
+  padding: 5px;
 }
 .inp_name {
-    width: 25%;
-    font-size: 18px;
-    padding: 5px;
-    margin-left: 310px;
+  width: 25%;
+  font-size: 18px;
+  padding: 5px;
+  margin-left: 310px;
 }
 .inp_cont {
-    margin-left: 5%;
-    font-size: 18px;
-    padding: 5px;
+  margin-left: 5%;
+  font-size: 18px;
+  padding: 5px;
 }
 .sel_cdoc {
-    width: 13%;
-    font-size: 18px;
-    padding: 5px;
-    margin-left: 310px;
+  width: 13%;
+  font-size: 18px;
+  padding: 5px;
+  margin-left: 310px;
 }
 .sel_cdoc1 {
-    width: 13%;
-    font-size: 18px;
-    padding: 5px;
-    margin-left: 0;
+  width: 13%;
+  font-size: 18px;
+  padding: 5px;
+  margin-left: 0;
 }
 .inp_time {
-    font-size: 18px;
-    padding: 5px;
-    margin-left: 5%;
-    width: 10%;
+  font-size: 18px;
+  padding: 5px;
+  margin-left: 5%;
+  width: 10%;
 }
 .btn_sappoint {
-    padding: 1%;
-    font-size: 18px;
-    color: white;
-    border: none;
-    background: red;
-    margin: 2% 0 0;
+  padding: 1%;
+  font-size: 18px;
+  color: white;
+  border: none;
+  background: red;
+  margin: 2% 0 0;
 }
 p.success_para {
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    text-shadow: 0 0 16px #fe0000;
-    color: #fe0000;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 0 16px #fe0000;
+  color: #fe0000;
+}
+body {
+  background: url(image/dashboard_background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.appont_sec {
+  width: 90%;
+  margin: 117px auto;
+  border-radius: 10px;
+  padding-bottom: 2%;
+  background: white;
 }

@@ -75,47 +75,55 @@ if (isset($_POST["submit"])) {
     <title>Sanjivini Hospital-MeetDoctor</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="font.css">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cmn_file/nav-style.css">
 </head>
 
 <body>
-    <div class="container">
-        <section class="navbar">
-            <div class="logo_sec" align="center">
-                <div>
-                    <img src="image/logo.png" class="navbar_img">
-                </div>
+    <?php include("cmn_file/login_navbar.php"); ?>
+    <div class="route my-3">
+        <div class="container">
+            <div class="row">
+                <h7>Home</h7>
+                <i class="fas fa-arrow-right"></i>
+                <h7>Login</h7>
             </div>
-            <div class="nav_sec" align="right">
-                <ul class="ul_nav_sec">
-                    <li>
-                        <a href="index.php" class="chng_clr">Home</a>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <section class="loginsec">
-            <div class="login_sec">
-                <p class="login_head">Login Interface</p>
+        </div>
+    </div>
+    <section class="loginsec">
+        <div class="row">
+            <div class="col-md-4 m-auto">
+                <h3 class="login_head my-3">Login Interface</h3>
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="usertype">User Type</label>
+                        <select name="s_type" class="form-control">
+                            <option>Select Type</option>
+                            <option value="admin">Main Admin</option>
+                            <option value="patient">Patient</option>
+                            <option value="doctor">Doctor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="user">Username</label>
+                        <input type="text" name="uname" class="form-control">
 
-                <form action="" method="POST" align="center">
-                    <label class="utype_head">User Type</label>
-                    <select class="sel_utype" name="s_type">
-                        <option>Select Type</option>
-                        <option value="admin">Main Admin</option>
-                        <option value="patient">Patient</option>
-                        <option value="doctor">Doctor</option>
-                    </select><br>
-                    <input type="text" name="uname" placeholder="User Name" class="inp_userid"><br>
-                    <input type="password" name="upswd" placeholder="Password" class="inp_pswd"><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="upswd" class="form-control">
+                    </div>
+
                     <?php echo $failed; ?>
-                    <input type="submit" name="submit" value="Login" class="btn_submit"><br>
-                    <a href="forgot_pswd.php" class="a_pswd">Forgot Password</a>
+                    <input type="submit" name="submit" value="Login" class="btn btn-primary login"><br>
+                    <div class="my-3">
+                        <a href="forgot_pswd.php">Forgot Password</a>
+                    </div>
                 </form>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 </body>
 
 </html>

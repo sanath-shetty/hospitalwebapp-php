@@ -1,4 +1,17 @@
 <?php
+session_start();
+include "connect.php";
+$sql = "SELECT * FROM a_patient where padmin_id='" . $_SESSION["pa_session"] . "'";
+$result = mysqli_query($con, $sql);
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $user = $row["pa_name"];
+    }
+} else {
+    header('location: login.php');
+}
+?>
+<?php
 include 'connect.php';
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -57,65 +70,94 @@ if (isset($_POST['btn_save'])) {
 <html>
 
 <head>
-    <title></title>
+    <title>Sanjivini Hospital-MeetDoctor</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="font.css">
-    <link rel="stylesheet" href="doc_visited.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cmn_file/nav-style.css">
+
+    <style>
+        body {
+            background: url(image/dashboard_background.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body>
-
-    <div class="container">
-        <?php include("cmn_file/login_topnav_patient.php"); ?>
-        <section class="doc_vsec">
-            <p class="doc_vhead">Doctor Visited</p>
-            <form method="POST" action="">
-
-                <div style="width: 65%; margin: 2% auto;">
-                    <input type="text" name="pg_id" placeholder="Patient Id" class="pg_id" value="<?php echo $pid; ?>" readonly>
-
-                    <input type="text" name="pg_fname" placeholder="Patient first name" class="pg_fname" value="<?php echo $fname; ?>" readonly>
-
-                    <input type="text" name="pg_lname" placeholder="Patient last name" class="pg_lname" value="<?php echo $lname; ?>" readonly><br>
-
-                    <input type="text" name="pg_building" placeholder="Building name" class="pg_building" value="<?php echo $bldName; ?>" readonly>
-
-                    <input type="text" name="pg_ward" placeholder="Ward number" class="pg_ward" value="<?php echo $wNum; ?>" readonly>
-                </div>
-
-                <div>
-                    <p class="cho_doc">Choose Doctor</p>
-                    <select class="sel_cdoc" name="spec" id="spec">
-                        <option></option>
-                        <?php
-                        include "connect.php";
-                        $sql = "SELECT * FROM d_specl ";
-                        $cnt = mysqli_query($con, $sql);
-
-                        if ($cnt) {
-
-                            while ($row = mysqli_fetch_assoc($cnt)) {
-
-                                echo "<option value=" . $row['s_id'] . ">" . $row['s_name'] . "</option>";
-                            }
-                        } else {
-                            echo $con->error;
-                        }
-
-                        echo "</select>
-
-            <select name='docName' id='docName' class='sel_cdoc1'></select>"; ?><br><br>
-                </div>
-                <div align="center">
-                    <input type="submit" name="btn_save" class="btn_save" value="Save"><br>
-                </div>
-
-
-            </form>
-
-        </section>
+    <?php include("cmn_file/login_topnav_patient.php"); ?>
+    <div class="route my-3">
+        <div class="container">
+            <div class="row">
+                <h7>Home</h7>
+                <i class="fas fa-arrow-right"></i>
+                <h7>Patient admin</h7>
+            </div>
+        </div>
     </div>
+    <section class="doc_vsec container mb-3">
+        <div class="row top-row">
+            <div class="col-md-10 m-auto">
+                <form method="POST">
+                    <div class="row my-2">
+                        <div class="form-group col-md-2 m-auto">
+                            <label for="patientid">Patient id</label>
+                            <input type="text" name="pg_id" class="form-control" value="<?php echo $pid; ?>" readonly>
+                        </div>
+                        <div class="form-group col-md-5 m-auto">
+                            <label for="fname">First name</label>
+                            <input type="text" name="pg_fname" class="form-control" value="<?php echo $fname; ?>" readonly>
+                        </div>
+                        <div class="form-group col-md-5 m-auto">
+                            <label for="lname">Last name</label>
+                            <input type="text" name="pg_lname" class="form-control" value="<?php echo $lname; ?>" readonly>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="form-group col-md-6 m-auto">
+                            <label for="building">Building</label>
+                            <input type="text" name="pg_building" class="form-control" value="<?php echo $bldName; ?>" readonly>
+                        </div>
+                        <div class="form-group col-md-6 m-auto">
+                            <label for="ward">Ward</label>
+                            <input type="text" name="pg_ward" class="form-control" value="<?php echo $wNum; ?>" readonly>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <div class="form-group col-md-6 m-auto">
+                            <label for="spec">Specialization</label>
+                            <select class="form-control" name="spec" id="spec">
+                                <option></option>
+                                <?php
+                                include "connect.php";
+                                $sql = "SELECT * FROM d_specl ";
+                                $cnt = mysqli_query($con, $sql);
+
+                                if ($cnt) {
+
+                                    while ($row = mysqli_fetch_assoc($cnt)) { ?>
+
+                                        <option value="<?php echo $row['s_id'] ?>"><?php echo $row['s_name'] ?></option>
+                                <?php    }
+                                } else {
+                                    echo $con->error;
+                                } ?>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6 m-auto">
+                            <label for="doctor">Doctor</label>
+                            <select name='docName' id='docName' class='form-control'></select>
+                        </div>
+                    </div>
+                    <input type="submit" name="btn_save" class="docvisbtn mt-3" value="Save">
+                </form>
+            </div>
+        </div>
+
+
+    </section>
 
     <script src="js/jquery-1.8.1.min.js"></script>
     <script>

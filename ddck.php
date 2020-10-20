@@ -11,7 +11,7 @@ exit;
 /// end of checking injection attack ////
 include 'connect.php';
 $result = array();
-if($stmt = $con->prepare("select doc_id,f_name,l_name from doctor_data where s_id=?")){
+if($stmt = $con->prepare("select * from doctor_data where s_id=?")){
     $stmt->bind_param('i',$s_id);
     $stmt->execute();
     $stmt = $stmt->get_result();
@@ -25,4 +25,3 @@ if($stmt = $con->prepare("select doc_id,f_name,l_name from doctor_data where s_i
 
 $main = array('data'=>$result,'no_of_records'=>$no_of_records);
 echo json_encode($main);
-?>

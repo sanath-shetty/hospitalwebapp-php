@@ -1,0 +1,81 @@
+.top-sec {
+  width: 100%;
+}
+.row {
+  width: 100%;
+}
+.background {
+  background: #067cac;
+}
+img.navbar_img {
+  margin-left: 133px;
+}
+i.fab.fa-facebook-square {
+  font-size: 40px;
+  margin: 30% 0;
+  color: #38529a;
+}
+i.fab.fa-twitter-square {
+  font-size: 40px;
+  margin: 30% 0;
+  color: #03a9f4;
+}
+nav.navbar.navbar-expand-lg {
+  background: #067cac;
+}
+a.navbar-brand {
+  color: white;
+  width: 8%;
+}
+a.nav-link {
+  color: white;
+}
+ul.navbar-nav.mr-auto {
+  width: 100%;
+  justify-content: flex-end;
+}
+img.img-prop {
+  width: 100%;
+}
+footer {
+  background: #2e3033;
+}
+footer h3 {
+  color: white;
+  padding: 2% 5%;
+}
+img.img-prop {
+  width: 80%;
+  margin: 0 10%;
+}
+footer label {
+  color: white;
+  font-weight: bold;
+}
+footer h5 {
+  color: white;
+}
+footer h7 {
+  color: white;
+}
+i.fas.fa-map-marker-alt {
+  color: white;
+  font-size: 20px;
+}
+.text-center.bottom {
+  background: #151515;
+  padding: 2%;
+}
+.text-center.bottom p {
+  margin: 0;
+}
+button.contact {
+  border: none;
+  padding: 6px 15px;
+  color: white;
+  background: gray;
+  font-weight: bold;
+}
+.dropdown-item {
+  cursor: pointer;
+}

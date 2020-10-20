@@ -32,7 +32,7 @@ if (isset($_POST['id'])) {
             </form>
         </section>
         <section class="vpdata_sec">
-            <p class="vpdate_head">View Patient Data</p>
+            <p class="vpdate_head">Discharge Bills</p>
             <form action="" method="POST">
                 <table class="tb_vpdata">
                     <tr>
