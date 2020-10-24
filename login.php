@@ -82,48 +82,162 @@ if (isset($_POST["submit"])) {
 
 <body>
     <?php include("cmn_file/login_navbar.php"); ?>
-    <div class="route my-3">
-        <div class="container">
+
+    <!-- laptop -->
+
+    <div class="laptop">
+        <div class="route my-3">
+            <div class="container">
+                <div class="row">
+                    <a href="">
+                        <h7>Home</h7>
+                    </a>
+                    <i class="fas fa-arrow-right"></i>
+                    <a href="">
+                        <h7>Login</h7>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <section class="loginsec">
             <div class="row">
-                <h7>Home</h7>
-                <i class="fas fa-arrow-right"></i>
-                <h7>Login</h7>
+                <div class="col-md-4 m-auto">
+                    <h3 class="login_head my-3">Login Interface</h3>
+                    <form method="POST">
+                        <div class="form-group">
+                            <label for="usertype">User Type</label>
+                            <select name="s_type" class="form-control">
+                                <option>Select Type</option>
+                                <option value="admin">Main Admin</option>
+                                <option value="patient">Patient</option>
+                                <option value="doctor">Doctor</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="user">Username</label>
+                            <input type="text" name="uname" class="form-control">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="upswd" class="form-control">
+                        </div>
+
+                        <?php echo $failed; ?>
+                        <input type="submit" name="submit" value="Login" class="btn btn-primary login"><br>
+                        <div class="my-3">
+                            <a href="forgot_pswd.php">Forgot Password</a>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
+        </section>
     </div>
-    <section class="loginsec">
-        <div class="row">
-            <div class="col-md-4 m-auto">
-                <h3 class="login_head my-3">Login Interface</h3>
-                <form method="POST">
-                    <div class="form-group">
-                        <label for="usertype">User Type</label>
-                        <select name="s_type" class="form-control">
-                            <option>Select Type</option>
-                            <option value="admin">Main Admin</option>
-                            <option value="patient">Patient</option>
-                            <option value="doctor">Doctor</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="user">Username</label>
-                        <input type="text" name="uname" class="form-control">
 
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" name="upswd" class="form-control">
-                    </div>
+    <!-- tab -->
 
-                    <?php echo $failed; ?>
-                    <input type="submit" name="submit" value="Login" class="btn btn-primary login"><br>
-                    <div class="my-3">
-                        <a href="forgot_pswd.php">Forgot Password</a>
-                    </div>
-                </form>
+    <div class="tab">
+        <div class="route my-3">
+            <div class="container">
+                <div class="row">
+                    <a href="">
+                        <h7>Home</h7>
+                    </a>
+                    <i class="fas fa-arrow-right"></i>
+                    <a href="">
+                        <h7>Login</h7>
+                    </a>
+                </div>
             </div>
         </div>
-    </section>
+        <section class="loginsec">
+            <div class="row">
+                <div class="col-md-8 m-auto">
+                    <h3 class="login_head my-3">Login Interface</h3>
+                    <form method="POST">
+                        <div class="form-group">
+                            <label for="usertype">User Type</label>
+                            <select name="s_type" class="form-control">
+                                <option>Select Type</option>
+                                <option value="admin">Main Admin</option>
+                                <option value="patient">Patient</option>
+                                <option value="doctor">Doctor</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="user">Username</label>
+                            <input type="text" name="uname" class="form-control">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="upswd" class="form-control">
+                        </div>
+
+                        <?php echo $failed; ?>
+                        <input type="submit" name="submit" value="Login" class="btn btn-primary login"><br>
+                        <div class="my-3">
+                            <a href="forgot_pswd.php">Forgot Password</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- mobile -->
+
+    <div class="mobile">
+        <div class="route my-3 mx-3">
+            <div class="container">
+                <div class="row">
+                    <a href="">
+                        <h7>Home</h7>
+                    </a>
+                    <i class="fas fa-arrow-right"></i>
+                    <a href="">
+                        <h7>Login</h7>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <section class="loginsec">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 m-auto">
+                        <h3 class="login_head my-3">Login Interface</h3>
+                        <form method="POST">
+                            <div class="form-group">
+                                <label for="usertype">User Type</label>
+                                <select name="s_type" class="form-control">
+                                    <option>Select Type</option>
+                                    <option value="admin">Main Admin</option>
+                                    <option value="patient">Patient</option>
+                                    <option value="doctor">Doctor</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="user">Username</label>
+                                <input type="text" name="uname" class="form-control">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" name="upswd" class="form-control">
+                            </div>
+
+                            <?php echo $failed; ?>
+                            <input type="submit" name="submit" value="Login" class="btn btn-primary login"><br>
+                            <div class="my-3">
+                                <a href="forgot_pswd.php">Forgot Password</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
 </body>
 
 </html>

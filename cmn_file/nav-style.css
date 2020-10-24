@@ -1,14 +1,8 @@
-.top-sec {
-  width: 100%;
-}
-.row {
-  width: 100%;
+.row .top-sec {
+  width: 50%;
 }
 .background {
   background: #067cac;
-}
-img.navbar_img {
-  margin-left: 133px;
 }
 i.fab.fa-facebook-square {
   font-size: 40px;
@@ -26,6 +20,8 @@ nav.navbar.navbar-expand-lg {
 a.navbar-brand {
   color: white;
   width: 8%;
+  margin: auto 2%;
+  font-weight: bold;
 }
 a.nav-link {
   color: white;
@@ -38,7 +34,7 @@ img.img-prop {
   width: 100%;
 }
 footer {
-  background: #2e3033;
+  background: #067cac;
 }
 footer h3 {
   color: white;
@@ -63,7 +59,7 @@ i.fas.fa-map-marker-alt {
   font-size: 20px;
 }
 .text-center.bottom {
-  background: #151515;
+  background: white;
   padding: 2%;
 }
 .text-center.bottom p {
@@ -72,10 +68,57 @@ i.fas.fa-map-marker-alt {
 button.contact {
   border: none;
   padding: 6px 15px;
-  color: white;
-  background: gray;
-  font-weight: bold;
+  color: #067cac;
+  background: white;
 }
 .dropdown-item {
   cursor: pointer;
+}
+img {
+  vertical-align: middle;
+  border-style: none;
+  width: 80px;
+}
+footer .row.mb-5 {
+  width: 100%;
+}
+.bottom h7 {
+  color: #067cac;
+}
+
+@media only screen and (max-width: 480px) {
+  img {
+    margin-left: 5%;
+    width: 50px;
+  }
+  .navbar-dark .navbar-brand {
+    font-size: 15px;
+  }
+
+  footer h3 {
+    color: white;
+    padding: 2% 5%;
+    font-size: 20px;
+  }
+  img.img-prop {
+    width: 50%;
+    margin: 0 25%;
+  }
+  footer label {
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+  }
+  footer input.form-control {
+    font-size: 12px;
+  }
+  footer textarea.form-control {
+    font-size: 12px;
+  }
+  button.contact {
+    font-size: 12px;
+  }
+  footer h7 {
+    font-size: 12px;
+  }
 }

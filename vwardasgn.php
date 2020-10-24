@@ -28,24 +28,34 @@ if (isset($_POST['srcbox'])) {
 	<link rel="stylesheet" href="bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="cmn_file/nav-style.css">
-
 	<style>
 		body {
 			background: url(image/dashboard_background.jpg);
 			background-repeat: no-repeat;
 			background-size: cover;
+			min-height: 100%;
+			background-position: center center;
+			background-attachment: fixed;
 		}
 	</style>
 </head>
 
 <body>
 	<?php include("cmn_file/login_topnav_patient.php"); ?>
-	<div class="route my-3">
+	<div class="route my-3 mx-3">
 		<div class="container">
 			<div class="row">
-				<h7>Home</h7>
+				<a href="">
+					<h7>Home</h7>
+				</a>
 				<i class="fas fa-arrow-right"></i>
-				<h7>Patient admin</h7>
+				<a href="">
+					<h7>Patient admin</h7>
+				</a>
+				<i class="fas fa-arrow-right"></i>
+				<a href="">
+					<h7>Ward assigned</h7>
+				</a>
 			</div>
 		</div>
 	</div>

@@ -1,76 +1,28 @@
-<style>
-.navbar {
-    width: 100%;
-    display: flex;
-    background: #31D2DE;
-}
-.logo_sec {
-    width: 10%;
-}
-.nav_sec {
-    width: 90%;
-    margin: auto 0;
-    margin-right: 2%;
-}
-.ul_nav_sec {
-    width: 26%;
-    display: flex;
-    padding: 0;
-    list-style: none;
-}
-.ul_nav_sec div a {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-}
-.ul_nav_sec div {
-    margin-right: 8%;
-}
-#hover_here{
-    position: relative;
-}
-.sub_list {
-    position: absolute;
-    list-style: none;
-    padding: 10px;
-    width: 125px;
-    background: #31d2de;
-    right: -50px;
-    text-align: center;
-    display: none;
-}
-.sub_list a{
-    display: block;
-    margin-top: 9%;
-}
-#hover_here:hover .sub_list{
-    display: block;
-}
-</style>
-<body>
-	<section class="navbar">
-		<div class="logo_sec" align="center">
-			<div>
-				<img src="image/logo.png" class="navbar_img">
-			</div>
-		</div>
-		<div class="nav_sec" align="right">
-			<div class="ul_nav_sec">
-				<div>
-					<a href="dashboard_doctoradmin.php" class="chng_clr">Dashboard</a>
-				</div>
-				<div id="hover_here">
-					<a href="#" class="chng_clr">Doctor</a>
-					<div class="sub_list">
-						<a href="doctordata_form.php">Add Doctor</a>
-						<a href="vdoctordetail.php">View Doctor</a>
-					</div>
-				</div>
-				<div>
-					<a href="logout.php" class="chng_clr">Logout</a>
-				</div>
-			</div>
-		</div>
-	</section>
-</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="cmn_file/nav-style.css">
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <div class="row top-sec">
+            <img src="image/logo.png" class="navbar_img">
+            <a class="navbar-brand" href="#">Sanjivini Hospital</a>
+        </div>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor03">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a href="dashboard_doctoradmin.php" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="change_pswd.php">Change Password</a>
+                </li>
+                <li class="nav-item">
+                    <a href="logout.php" class="nav-link"><?php echo $user; ?>-Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -67,150 +67,449 @@ if (isset($_POST["save_patient"])) {
 	<link rel="stylesheet" href="bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="cmn_file/nav-style.css">
-
 	<style>
 		body {
 			background: url(image/dashboard_background.jpg);
 			background-repeat: no-repeat;
 			background-size: cover;
+			min-height: 100vh;
+			background-position: center center;
+			background-attachment: fixed;
 		}
 	</style>
 </head>
 
 <body>
 	<?php include("cmn_file/login_topnav_patient.php"); ?>
-	<div class="route my-3">
-		<div class="container">
-			<div class="row">
-				<h7>Home</h7>
-				<i class="fas fa-arrow-right"></i>
-				<h7>Patient admin</h7>
+
+	<!-- laptop -->
+
+	<div class="laptop">
+		<div class="route my-3 mx-3">
+			<div class="container">
+				<div class="row">
+					<a href="">
+						<h7>Home</h7>
+					</a>
+					<i class="fas fa-arrow-right"></i>
+					<a href="">
+						<h7>Patient admin</h7>
+					</a>
+					<i class="fas fa-arrow-right"></i>
+					<a href="">
+						<h7>Add patient</h7>
+					</a>
+				</div>
 			</div>
 		</div>
-	</div>
-	<section class="form-sec container">
-		<div class="row">
-			<div class="col-md-8 m-auto">
-				<form class="patient" method="POST">
-					<?php
-					include('connect.php');
-					$pid = "";
-					$sq = "SELECT `p_id` FROM `patient_data` ORDER BY `p_id` desc LIMIT 1";
-					$ctn = mysqli_query($con, $sq);
-					if (mysqli_num_rows($ctn) > 0) {
-						while ($row = mysqli_fetch_assoc($ctn)) {
-							$p_id_code = $row['p_id'];
-							$pid = ++$p_id_code;
+		<section class="form-sec container">
+			<div class="row">
+				<div class="col-md-8 m-auto">
+					<form class="patient" method="POST">
+						<?php
+						include('connect.php');
+						$pid = "";
+						$sq = "SELECT `p_id` FROM `patient_data` ORDER BY `p_id` desc LIMIT 1";
+						$ctn = mysqli_query($con, $sq);
+						if (mysqli_num_rows($ctn) > 0) {
+							while ($row = mysqli_fetch_assoc($ctn)) {
+								$p_id_code = $row['p_id'];
+								$pid = ++$p_id_code;
+							}
+						} else {
+							$pid = 'P01';
 						}
-					} else {
-						$pid = 'P01';
-					}
-					?>
-					<div class="form-group">
-						<label for="fname">First name</label>
-						<input type="text" name="p_fname" class="form-control">
-					</div>
-					<div class="form-group">
-						<label for="lname">Last name</label>
-						<input type="text" name="p_lname" class="form-control">
-					</div>
-					<div class="row">
-						<div class="form-group col-md-6 m-auto">
-							<label for="date">Date</label>
-							<input type="date" name="p_dob" id="date" class="form-control">
+						?>
+						<div class="form-group">
+							<label for="fname">First name</label>
+							<input type="text" name="p_fname" class="form-control">
 						</div>
-						<div class="form-group col-md-6 m-auto">
-							<label for="age">Age</label>
-							<input type="number" name="p_age" value="" id="age" class="form-control">
+						<div class="form-group">
+							<label for="lname">Last name</label>
+							<input type="text" name="p_lname" class="form-control">
 						</div>
-					</div>
-					<div class="row">
-						<div class="form-group col-md-6 m-auto">
-							<label for="blood">Blood Group</label>
-							<select class="form-control" name="p_bg">
-								<option>Select Group</option>
-								<option value="A+ve">A+ve</option>
-								<option value="A-ve">A-ve</option>
-								<option value="B+ve">B+ve</option>
-								<option value="B-ve">B-ve</option>
-								<option value="O+ve">O+ve</option>
-								<option value="O-ve">O-ve</option>
-								<option value="Ab+ve">Ab+ve</option>
-								<option value="AB-ve">AB-ve</option>
+						<div class="row">
+							<div class="form-group col-md-6 m-auto">
+								<label for="date">Date</label>
+								<input type="date" name="p_dob" id="date" class="form-control">
+							</div>
+							<div class="form-group col-md-6 m-auto">
+								<label for="age">Age</label>
+								<input type="number" name="p_age" value="" id="age" class="form-control">
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-6 m-auto">
+								<label for="blood">Blood Group</label>
+								<select class="form-control" name="p_bg">
+									<option>Select Group</option>
+									<option value="A+ve">A+ve</option>
+									<option value="A-ve">A-ve</option>
+									<option value="B+ve">B+ve</option>
+									<option value="B-ve">B-ve</option>
+									<option value="O+ve">O+ve</option>
+									<option value="O-ve">O-ve</option>
+									<option value="Ab+ve">Ab+ve</option>
+									<option value="AB-ve">AB-ve</option>
+								</select>
+							</div>
+							<div class="form-group col-md-6 m-auto">
+								<label for="contact">Contact</label>
+								<input type="number" name="p_cont" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="address">Address</label>
+							<textarea class="form-control" name="p_adrs" placeholder="Address Here"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="state">State</label>
+							<select class="form-control" name="p_state">
+								<option>Select State</option>
+								<?php $sql = mysqli_query($con, "SELECT * FROM state ORDER by st_name ASC");
+								while ($read = mysqli_fetch_array($sql)) {
+								?>
+									<option value="<?php echo $read['st_id']; ?>"><?php echo $read['st_name']; ?></option>
+								<?php } ?>
 							</select>
 						</div>
-						<div class="form-group col-md-6 m-auto">
-							<label for="contact">Contact</label>
-							<input type="number" name="p_cont" class="form-control">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="address">Address</label>
-						<textarea class="form-control" name="p_adrs" placeholder="Address Here"></textarea>
-					</div>
-					<div class="form-group">
-						<label for="state">State</label>
-						<select class="form-control" name="p_state">
-							<option>Select State</option>
-							<?php $sql = mysqli_query($con, "SELECT * FROM state ORDER by st_name ASC");
-							while ($read = mysqli_fetch_array($sql)) {
-							?>
-								<option value="<?php echo $read['st_id']; ?>"><?php echo $read['st_name']; ?></option>
-							<?php } ?>
-						</select>
-					</div>
 
-					<div class="row">
-						<div class="form-group col-md-6 m-auto">
-							<label for="city">City</label>
-							<input type="text" name="p_city" placeholder="city" class="form-control">
+						<div class="row">
+							<div class="form-group col-md-6 m-auto">
+								<label for="city">City</label>
+								<input type="text" name="p_city" placeholder="city" class="form-control">
+							</div>
+							<div class="form-group col-md-6 m-auto">
+								<label for="pincode">Pin code</label>
+								<input type="number" name="p_pin" class="form-control">
+							</div>
 						</div>
-						<div class="form-group col-md-6 m-auto">
-							<label for="pincode">Pin code</label>
-							<input type="number" name="p_pin" class="form-control">
-						</div>
-					</div>
 
-					<div class="form-group">
-						<label for="occupation">Occupation</label>
-						<textarea class="form-control" name="p_job"></textarea>
-					</div>
-					<div class="form-group">
-						<label for="email">Email</label>
-						<input type="email" name="p_email" class="form-control">
-					</div>
-					<div class="row">
-						<div class="from-group col-md-6 m-auto">
-							<label for="height">Height</label>
-							<input type="number" name="p_hei" class="form-control">
+						<div class="form-group">
+							<label for="occupation">Occupation</label>
+							<textarea class="form-control" name="p_job"></textarea>
 						</div>
-						<div class="form-group col-md-6 m-auto">
-							<label for="width">Width</label>
-							<input type="number" name="p_wei" class="form-control">
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="email" name="p_email" class="form-control">
 						</div>
-					</div>
+						<div class="row">
+							<div class="from-group col-md-6 m-auto">
+								<label for="height">Height</label>
+								<input type="number" name="p_hei" class="form-control">
+							</div>
+							<div class="form-group col-md-6 m-auto">
+								<label for="width">Width</label>
+								<input type="number" name="p_wei" class="form-control">
+							</div>
+						</div>
 
-					<label for="other">Any previous health issues?</label>
-					<div class="form-group row check">
-						<input type="checkbox" name="healthissue[]" value="diabeties">
-						<p class="hlt_head">Diabeties</p>
-						<input type="checkbox" name="healthissue[]" value="bloodpressure">
-						<p class="hlt_head">Blood Pressure</p>
-						<input type="checkbox" name="healthissue[]" value="stroke">
-						<p class="hlt_head">Stroke</p>
-						<input type="checkbox" name="healthissue[]" value="skinallergies">
-						<p class="hlt_head">Skin Allergies</p>
-					</div>
-					<div class="from-group">
-						<label for="otr">Any Other</label>
-						<textarea class="form-control" name="p_oissue"></textarea>
-					</div>
-					<input type="submit" name="save_patient" value="Add" class="btn btn-primary mt-3">
-				</form>
+						<label for="other">Any previous health issues?</label>
+						<div class="form-group row check">
+							<input type="checkbox" name="healthissue[]" value="diabeties">
+							<p class="hlt_head">Diabeties</p>
+							<input type="checkbox" name="healthissue[]" value="bloodpressure">
+							<p class="hlt_head">Blood Pressure</p>
+							<input type="checkbox" name="healthissue[]" value="stroke">
+							<p class="hlt_head">Stroke</p>
+							<input type="checkbox" name="healthissue[]" value="skinallergies">
+							<p class="hlt_head">Skin Allergies</p>
+						</div>
+						<div class="from-group">
+							<label for="otr">Any Other</label>
+							<textarea class="form-control" name="p_oissue"></textarea>
+						</div>
+						<input type="submit" name="save_patient" value="Add" class="btn btn-primary mt-3">
+					</form>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<!-- tab -->
+
+	<div class="tab">
+		<div class="route my-3 mx-3">
+			<div class="container">
+				<div class="row">
+					<a href="">
+						<h7>Home</h7>
+					</a>
+					<i class="fas fa-arrow-right"></i>
+					<a href="">
+						<h7>Patient admin</h7>
+					</a>
+					<i class="fas fa-arrow-right"></i>
+					<a href="">
+						<h7>Add patient</h7>
+					</a>
+				</div>
 			</div>
 		</div>
+		<section class="form-sec container">
+			<div class="row">
+				<div class="col-md-10 m-auto">
+					<form class="patient" method="POST">
+						<?php
+						include('connect.php');
+						$pid = "";
+						$sq = "SELECT `p_id` FROM `patient_data` ORDER BY `p_id` desc LIMIT 1";
+						$ctn = mysqli_query($con, $sq);
+						if (mysqli_num_rows($ctn) > 0) {
+							while ($row = mysqli_fetch_assoc($ctn)) {
+								$p_id_code = $row['p_id'];
+								$pid = ++$p_id_code;
+							}
+						} else {
+							$pid = 'P01';
+						}
+						?>
+						<div class="form-group">
+							<label for="fname">First name</label>
+							<input type="text" name="p_fname" class="form-control">
+						</div>
+						<div class="form-group">
+							<label for="lname">Last name</label>
+							<input type="text" name="p_lname" class="form-control">
+						</div>
+						<div class="row">
+							<div class="form-group col-md-6 m-auto">
+								<label for="date">Date</label>
+								<input type="date" name="p_dob" id="date" class="form-control">
+							</div>
+							<div class="form-group col-md-6 m-auto">
+								<label for="age">Age</label>
+								<input type="number" name="p_age" value="" id="age" class="form-control">
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-6 m-auto">
+								<label for="blood">Blood Group</label>
+								<select class="form-control" name="p_bg">
+									<option>Select Group</option>
+									<option value="A+ve">A+ve</option>
+									<option value="A-ve">A-ve</option>
+									<option value="B+ve">B+ve</option>
+									<option value="B-ve">B-ve</option>
+									<option value="O+ve">O+ve</option>
+									<option value="O-ve">O-ve</option>
+									<option value="Ab+ve">Ab+ve</option>
+									<option value="AB-ve">AB-ve</option>
+								</select>
+							</div>
+							<div class="form-group col-md-6 m-auto">
+								<label for="contact">Contact</label>
+								<input type="number" name="p_cont" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="address">Address</label>
+							<textarea class="form-control" name="p_adrs" placeholder="Address Here"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="state">State</label>
+							<select class="form-control" name="p_state">
+								<option>Select State</option>
+								<?php $sql = mysqli_query($con, "SELECT * FROM state ORDER by st_name ASC");
+								while ($read = mysqli_fetch_array($sql)) {
+								?>
+									<option value="<?php echo $read['st_id']; ?>"><?php echo $read['st_name']; ?></option>
+								<?php } ?>
+							</select>
+						</div>
 
-	</section>
+						<div class="row">
+							<div class="form-group col-md-6 m-auto">
+								<label for="city">City</label>
+								<input type="text" name="p_city" placeholder="city" class="form-control">
+							</div>
+							<div class="form-group col-md-6 m-auto">
+								<label for="pincode">Pin code</label>
+								<input type="number" name="p_pin" class="form-control">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="occupation">Occupation</label>
+							<textarea class="form-control" name="p_job"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="email" name="p_email" class="form-control">
+						</div>
+						<div class="row">
+							<div class="from-group col-md-6 m-auto">
+								<label for="height">Height</label>
+								<input type="number" name="p_hei" class="form-control">
+							</div>
+							<div class="form-group col-md-6 m-auto">
+								<label for="width">Width</label>
+								<input type="number" name="p_wei" class="form-control">
+							</div>
+						</div>
+
+						<label for="other">Any previous health issues?</label>
+						<div class="form-group row check">
+							<input type="checkbox" name="healthissue[]" value="diabeties">
+							<p class="hlt_head">Diabeties</p>
+							<input type="checkbox" name="healthissue[]" value="bloodpressure">
+							<p class="hlt_head">Blood Pressure</p>
+							<input type="checkbox" name="healthissue[]" value="stroke">
+							<p class="hlt_head">Stroke</p>
+							<input type="checkbox" name="healthissue[]" value="skinallergies">
+							<p class="hlt_head">Skin Allergies</p>
+						</div>
+						<div class="from-group">
+							<label for="otr">Any Other</label>
+							<textarea class="form-control" name="p_oissue"></textarea>
+						</div>
+						<input type="submit" name="save_patient" value="Add" class="btn btn-primary mt-3">
+					</form>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<!-- mobile -->
+
+	<div class="mobile">
+		<div class="route my-3 mx-3">
+			<div class="container">
+				<div class="row">
+					<a href="">
+						<h7>Home</h7>
+					</a>
+					<i class="fas fa-arrow-right"></i>
+					<a href="">
+						<h7>Patient admin</h7>
+					</a>
+					<i class="fas fa-arrow-right"></i>
+					<a href="">
+						<h7>Add patient</h7>
+					</a>
+				</div>
+			</div>
+		</div>
+		<section class="form-sec container">
+			<div class="row">
+				<div class="col-md-8 m-auto">
+					<form class="patient" method="POST">
+						<?php
+						include('connect.php');
+						$pid = "";
+						$sq = "SELECT `p_id` FROM `patient_data` ORDER BY `p_id` desc LIMIT 1";
+						$ctn = mysqli_query($con, $sq);
+						if (mysqli_num_rows($ctn) > 0) {
+							while ($row = mysqli_fetch_assoc($ctn)) {
+								$p_id_code = $row['p_id'];
+								$pid = ++$p_id_code;
+							}
+						} else {
+							$pid = 'P01';
+						}
+						?>
+						<div class="form-group">
+							<label for="fname">First name</label>
+							<input type="text" name="p_fname" class="form-control">
+						</div>
+						<div class="form-group">
+							<label for="lname">Last name</label>
+							<input type="text" name="p_lname" class="form-control">
+						</div>
+						<div class="row">
+							<div class="form-group col-md-6 m-auto">
+								<label for="date">Date</label>
+								<input type="date" name="p_dob" id="date" class="form-control">
+							</div>
+							<div class="form-group col-md-6 m-auto">
+								<label for="age">Age</label>
+								<input type="number" name="p_age" value="" id="age" class="form-control">
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-6 m-auto">
+								<label for="blood">Blood Group</label>
+								<select class="form-control" name="p_bg">
+									<option>Select Group</option>
+									<option value="A+ve">A+ve</option>
+									<option value="A-ve">A-ve</option>
+									<option value="B+ve">B+ve</option>
+									<option value="B-ve">B-ve</option>
+									<option value="O+ve">O+ve</option>
+									<option value="O-ve">O-ve</option>
+									<option value="Ab+ve">Ab+ve</option>
+									<option value="AB-ve">AB-ve</option>
+								</select>
+							</div>
+							<div class="form-group col-md-6 m-auto">
+								<label for="contact">Contact</label>
+								<input type="number" name="p_cont" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="address">Address</label>
+							<textarea class="form-control" name="p_adrs" placeholder="Address Here"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="state">State</label>
+							<select class="form-control" name="p_state">
+								<option>Select State</option>
+								<?php $sql = mysqli_query($con, "SELECT * FROM state ORDER by st_name ASC");
+								while ($read = mysqli_fetch_array($sql)) {
+								?>
+									<option value="<?php echo $read['st_id']; ?>"><?php echo $read['st_name']; ?></option>
+								<?php } ?>
+							</select>
+						</div>
+
+						<div class="row">
+							<div class="form-group col-md-6 m-auto">
+								<label for="city">City</label>
+								<input type="text" name="p_city" placeholder="city" class="form-control">
+							</div>
+							<div class="form-group col-md-6 m-auto">
+								<label for="pincode">Pin code</label>
+								<input type="number" name="p_pin" class="form-control">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="occupation">Occupation</label>
+							<textarea class="form-control" name="p_job"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="email" name="p_email" class="form-control">
+						</div>
+						<div class="row">
+							<div class="from-group col-md-6 m-auto">
+								<label for="height">Height</label>
+								<input type="number" name="p_hei" class="form-control">
+							</div>
+							<div class="form-group col-md-6 m-auto">
+								<label for="width">Width</label>
+								<input type="number" name="p_wei" class="form-control">
+							</div>
+						</div>
+
+						<label for="other">Any previous health issues?</label>
+						<div class="form-group check">
+							<label for="diabeties"><input type="checkbox" name="healthissue[]" value="diabeties"> Diabeties</label><br>
+							<label for="bloodpessure"><input type="checkbox" name="healthissue[]" value="bloodpressure"> Blood Pressure</label><br>
+							<label for="stroke"><input type="checkbox" name="healthissue[]" value="stroke"> Stroke</label><br>
+							<label for="skin"><input type="checkbox" name="healthissue[]" value="skinallergies"> Skin Allergies</label>
+						</div>
+						<div class="from-group">
+							<label for="otr">Any Other</label>
+							<textarea class="form-control" name="p_oissue"></textarea>
+						</div>
+						<input type="submit" name="save_patient" value="Add" class="btn btn-primary mt-3">
+					</form>
+				</div>
+			</div>
+
+		</section>
+	</div>
 </body>
 <script>
 	document.getElementById("age").addEventListener("click", function() {

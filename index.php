@@ -8,89 +8,259 @@
 	<link rel="stylesheet" href="bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="cmn_file/nav-style.css">
+	<link rel="stylesheet" href="cmn_file/media.css">
 </head>
 
 <body>
 	<?php include("cmn_file/topnav_default.php"); ?>
-	<section class="top-section">
-		<div class="index-background">
-			<h1 class="ml-5 pt-5">Welcome To Sanjivini</h1>
-			<p class="ml-5 pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia maiores porro tenetur perferendis sapiente natus odit quam totam necessitatibus ipsa!</p>
-			<div class="ml-5 mt-5"><a href="btn">Contact us</a></div>
-		</div>
-	</section>
-	<section class="count-upto my-3">
-		<div class="container mb-3">
-			<div class="row">
-				<div class="col-md-3 m-auto">
-					<p class="val-p" id="val1">0</p>
-					<h5><span>Lakh</span> lives touched</h5>
-				</div>
-				<div class="col-md-3 m-auto">
-					<p class="val-p" id="val2">0</p>
-					<h5><span>Years</span> of experience</h5>
-				</div>
-				<div class="col-md-3 m-auto">
-					<p class="val-p" id="val3">0</p>
-					<h5><span>Expert</span> doctors</h5>
+	<!-- laptop -->
+	<div class="laptop">
+		<section class="top-section">
+			<div class="index-background">
+				<h1 class="ml-5 pt-5">Welcome To Sanjivini</h1>
+				<p class="ml-5 pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia maiores porro tenetur perferendis sapiente natus odit quam totam necessitatibus ipsa!</p>
+				<div class="ml-5 mt-5"><a href="index.php#contact">Contact us</a></div>
+			</div>
+		</section>
+		<section class="count-upto my-3">
+			<div class="container mb-3">
+				<div class="row">
+					<div class="col-md-3 m-auto">
+						<p class="val-p" id="val1">0</p>
+						<h5><span>Lakh</span> lives touched</h5>
+					</div>
+					<div class="col-md-3 m-auto">
+						<p class="val-p" id="val2">0</p>
+						<h5><span>Years</span> of experience</h5>
+					</div>
+					<div class="col-md-3 m-auto">
+						<p class="val-p" id="val3">0</p>
+						<h5><span>Expert</span> doctors</h5>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-	<section class="apointment-sec py-3">
-		<div class="container mx-3">
-			<div class="row">
-				<div class="col-md-6 m-auto">
-					<h3>Book Appointment</h3>
-					<form method="POST" class="mt-3">
-						<div class="form-group">
-							<label for="name">Name</label>
-							<input type="text" name="name" class="form-control">
-						</div>
-						<div class="form-group">
-							<label for="contact">Contact</label>
-							<input type="text" name="contact" class="form-control">
-						</div>
-						<div class="form-group">
-							<label for="department">Department</label>
-							<select name="spec" id="spec" class="form-control">
-								<option></option>
-								<?php
-								include "connect.php";
-								$sql = "SELECT * FROM d_specl ";
-								$cnt = mysqli_query($con, $sql);
+		</section>
+		<section class="apointment-sec py-3">
+			<div class="container mx-3">
+				<div class="row">
+					<div class="col-md-6 m-auto">
+						<h3>Book Appointment</h3>
+						<form method="POST" class="mt-3">
+							<div class="form-group">
+								<label for="name">Name</label>
+								<input type="text" name="name" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="contact">Contact</label>
+								<input type="text" name="contact" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="department">Department</label>
+								<select name="spec" id="spec" class="form-control">
+									<option></option>
+									<?php
+									include "connect.php";
+									$sql = "SELECT * FROM d_specl ";
+									$cnt = mysqli_query($con, $sql);
 
-								if ($cnt) {
-									while ($row = mysqli_fetch_assoc($cnt)) {
-										$id = $row["s_id"];
-										$name = $row["s_name"];
-								?>
-										<option value="<?php echo $id ?>"><?php echo $name ?></option>
-								<?php
+									if ($cnt) {
+										while ($row = mysqli_fetch_assoc($cnt)) {
+											$id = $row["s_id"];
+											$name = $row["s_name"];
+									?>
+											<option value="<?php echo $id ?>"><?php echo $name ?></option>
+									<?php
+										}
 									}
-								}
-								?>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="doctor">Doctor</label>
-							<select name="docName" id="docName" class="form-control"></select>
-						</div>
-						<div class="form-group">
-							<label for="date">Date</label>
-							<input type="date" name="date" class="form-control">
-						</div>
-						<div class="form-group">
-							<label for="time">Time</label>
-							<input type="time" name="time" class="form-control">
-						</div>
-						<button type="submit" class="book" name="book">Book</button>
-					</form>
+									?>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="doctor">Doctor</label>
+								<select name="docName" id="docName" class="form-control"></select>
+							</div>
+							<div class="form-group">
+								<label for="date">Date</label>
+								<input type="date" name="date" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="time">Time</label>
+								<input type="time" name="time" class="form-control">
+							</div>
+							<button type="submit" class="book" name="book">Book</button>
+						</form>
+					</div>
 				</div>
 			</div>
+		</section>
+	</div>
 
-		</div>
-	</section>
+	<!-- tab view -->
+
+	<div class="tab">
+		<section class="top-section">
+			<div class="index-background">
+				<h1 class="ml-5 pt-5">Welcome To Sanjivini</h1>
+				<p class="ml-5 pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia maiores porro tenetur perferendis sapiente natus odit quam totam necessitatibus ipsa!</p>
+				<div class="ml-5 mt-5"><a href="index.php#contact2">Contact us</a></div>
+			</div>
+		</section>
+		<section class="count-upto my-3">
+			<div class="container mb-3">
+				<div class="row">
+					<div class="col-md-3 m-auto">
+						<p class="val-p" id="val1">0</p>
+						<h5><span>Lakh</span> lives touched</h5>
+					</div>
+					<div class="col-md-3 m-auto">
+						<p class="val-p" id="val2">0</p>
+						<h5><span>Years</span> of experience</h5>
+					</div>
+					<div class="col-md-3 m-auto">
+						<p class="val-p" id="val3">0</p>
+						<h5><span>Expert</span> doctors</h5>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="apointment-sec py-3">
+			<div class="container mx-3">
+				<div class="row">
+					<div class="col-md-10 m-auto">
+						<h3>Book Appointment</h3>
+						<form method="POST" class="mt-3">
+							<div class="form-group">
+								<label for="name">Name</label>
+								<input type="text" name="name" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="contact">Contact</label>
+								<input type="text" name="contact" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="department">Department</label>
+								<select name="spec" id="spec" class="form-control">
+									<option></option>
+									<?php
+									include "connect.php";
+									$sql = "SELECT * FROM d_specl ";
+									$cnt = mysqli_query($con, $sql);
+
+									if ($cnt) {
+										while ($row = mysqli_fetch_assoc($cnt)) {
+											$id = $row["s_id"];
+											$name = $row["s_name"];
+									?>
+											<option value="<?php echo $id ?>"><?php echo $name ?></option>
+									<?php
+										}
+									}
+									?>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="doctor">Doctor</label>
+								<select name="docName" id="docName" class="form-control"></select>
+							</div>
+							<div class="form-group">
+								<label for="date">Date</label>
+								<input type="date" name="date" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="time">Time</label>
+								<input type="time" name="time" class="form-control">
+							</div>
+							<button type="submit" class="book" name="book">Book</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<!-- mobile view -->
+
+	<div class="mobile">
+		<section class="top-section">
+			<div class="index-background">
+				<h1 class="text-center pt-5">Welcome To Sanjivini</h1>
+				<p class="m-auto pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia maiores porro tenetur perferendis sapiente natus odit quam totam necessitatibus ipsa!</p>
+				<div class="mt-3 text-center"><a href="index.php#contact">Contact us</a></div>
+			</div>
+		</section>
+		<section class="count-upto my-3">
+			<div class="container mb-3">
+				<div class="row">
+					<div class="col-md-3 m-auto">
+						<p class="val-p" id="val1">0</p>
+						<h5><span>Lakh</span> lives touched</h5>
+					</div>
+					<div class="col-md-3 m-auto">
+						<p class="val-p" id="val2">0</p>
+						<h5><span>Years</span> of experience</h5>
+					</div>
+					<div class="col-md-3 m-auto">
+						<p class="val-p" id="val3">0</p>
+						<h5><span>Expert</span> doctors</h5>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="apointment-sec py-3">
+			<div class="container mx-3">
+				<div class="row">
+					<div class="col-md-10 m-auto">
+						<h3>Book Appointment</h3>
+						<form method="POST" class="mt-3">
+							<div class="form-group">
+								<label for="name">Name</label>
+								<input type="text" name="name" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="contact">Contact</label>
+								<input type="text" name="contact" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="department">Department</label>
+								<select name="spec" id="spec" class="form-control">
+									<option></option>
+									<?php
+									include "connect.php";
+									$sql = "SELECT * FROM d_specl ";
+									$cnt = mysqli_query($con, $sql);
+
+									if ($cnt) {
+										while ($row = mysqli_fetch_assoc($cnt)) {
+											$id = $row["s_id"];
+											$name = $row["s_name"];
+									?>
+											<option value="<?php echo $id ?>"><?php echo $name ?></option>
+									<?php
+										}
+									}
+									?>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="doctor">Doctor</label>
+								<select name="docName" id="docName" class="form-control"></select>
+							</div>
+							<div class="form-group">
+								<label for="date">Date</label>
+								<input type="date" name="date" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="time">Time</label>
+								<input type="time" name="time" class="form-control">
+							</div>
+							<button type="submit" class="book" name="book">Book</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
 
 	<?php include("cmn_file/footer_default.php"); ?>
 
@@ -144,7 +314,7 @@
 				}, 10);
 			}
 
-			animateValue('val1', 'val2', 'val3');
+			// animateValue('val1', 'val2', 'val3');
 		});
 	</script>
 </body>

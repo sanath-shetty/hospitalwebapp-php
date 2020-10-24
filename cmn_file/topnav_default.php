@@ -1,19 +1,16 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-<div class="top-sec">
-	<div class="row">
-		<div class="col-md-11 background">
-			<img src="image/logo.png" class="navbar_img">
-		</div>
-		<div class="col-md-1">
-			<i class="fab fa-facebook-square"></i>
-			<i class="fab fa-twitter-square"></i>
-		</div>
-	</div>
-</div>
-<nav class="navbar navbar-expand-lg">
+<link rel="stylesheet" href="cmn_file/nav-style.css">
+
+<nav class="navbar navbar-expand-lg navbar-dark">
 	<div class="container">
-		<a class="navbar-brand" href="#">Sanjivini Hospital</a>
+		<div class="row top-sec">
+			<img src="image/logo.png" class="navbar_img">
+			<a class="navbar-brand" href="#">Sanjivini Hospital</a>
+		</div>
+		<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
 		<div class="collapse navbar-collapse" id="navbarColor03">
 			<ul class="navbar-nav mr-auto">
